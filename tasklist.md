@@ -9,35 +9,36 @@
 ## Phase 1: Template Adaptation & Design System
 
 ### 1.1 Configure Design System in `styles.css`
-- [ ] Update CSS Variables in `:root` to match `STYLE_GUIDE.md`
-    - [ ] Update Colors (Warm Neutrals, Amber Accent)
-    - [ ] Update Fonts (`DM Sans`, `DM Serif Display`)
-    - [ ] Update Spacing Scale & Border Radius
-- [ ] Add new utility classes if needed (e.g., specific text styles)
+- [x] Update CSS Variables in `:root` to match `STYLE_GUIDE.md`
+    - [x] Update Colors (Warm Neutrals, Amber Accent)
+    - [x] Update Fonts (`DM Sans`, `DM Serif Display`)
+    - [x] Update Spacing Scale & Border Radius
+- [x] Add new utility classes if needed (e.g., specific text styles)
 
 ### 1.2 Global Component Refinement
-- [ ] Refine Navigation Bar
-    - [ ] Update Logo
-    - [ ] Update Menu Links
-    - [ ] Ensure "Get a Free Quote" CTA matches style guide
-- [ ] Refine Footer
-    - [ ] Update Column Designs
-    - [ ] Update Copyright & Legal
+- [x] Refine Navigation Bar
+    - [x] Update Logo
+    - [x] Update Menu Links
+    - [x] Ensure "Get a Free Quote" CTA matches style guide
+- [x] Refine Footer
+    - [x] Update Column Designs
+    - [x] Update Copyright & Legal
 
 ### 1.3 Template asset setup
-- [ ] Ensure `assets/` folder has placeholders or real images
-- [ ] Update `favicon`
+- [x] Ensure `assets/` folder has placeholders or real images
+- [x] Create `assets/videos/` directory for hero loop videos
+- [ ] Update `favicon` <!-- Skipped per user request -->
 
 ---
 
 ## Phase 2: Core Pages Implementation (Multi-page Scale)
 
 ### 2.1 Homepage (`index.html`)
-- [ ] Update Hero Section (Background, Copy, CTAs)
+- [x] Update Hero Section (Background, Copy, CTAs) - *Fixed loop, refined layout (Wider/Centered Nav/Logo Overlay)*
 - [ ] Update Services Grid (Content & Icons)
 - [ ] Update About/Why Choose Us Section
 - [ ] Update Testimonials Section
-- [ ] Update Contact/CTA Section
+- [/] Update Contact/CTA Section
 
 ### 2.2 Services Hub (`services/index.html`)
 - [ ] Create `services/` directory

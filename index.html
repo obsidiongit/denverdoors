@@ -4,70 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{BUSINESS_NAME}} | {{TAGLINE}}</title>
-    <meta name="description" content="{{META_DESCRIPTION}}">
+    <title>Denver Interior & Doors Co. | Expert Finish Carpentry & Door Installation</title>
+    <meta name="description"
+        content="Professional interior door installation, trim work, and custom built-ins in Denver, CO. Upgrade your home with high-quality craftsmanship.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-content">
-            <span class="top-bar-text">{{TOP_BAR_MESSAGE}}</span>
-            <a href="mailto:{{EMAIL}}" class="top-bar-email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                {{EMAIL}}
-            </a>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo" aria-label="{{BUSINESS_NAME}} Home">
-                <img src="assets/logo.png" alt="{{BUSINESS_NAME}}" class="nav-logo-img">
-            </a>
+            <!-- Logo moved to Hero Section overlay -->
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" tabindex="0">
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#reviews" class="nav-link">Reviews</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services/index.html" class="nav-link">Services</a></li>
+                <li><a href="our-work/index.html" class="nav-link">Our Work</a></li>
+                <li><a href="about/index.html" class="nav-link">About</a></li>
+                <li><a href="testimonials/index.html" class="nav-link">Reviews</a></li>
+                <li><a href="contact/index.html" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="tel:{{PHONE_LINK}}" class="nav-phone">
+                <a href="tel:7205550123" class="nav-phone">
                     <div class="phone-icon-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path
                                 d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                         </svg>
                     </div>
-                    <span>{{PHONE_DISPLAY}}</span>
+                    <span>(720) 555-0123</span>
                 </a>
-                <a href="tel:{{PHONE_LINK}}" class="btn btn-nav-cta">{{CTA_TEXT}}</a>
+                <a href="contact/index.html" class="btn btn-primary btn-nav-cta">Get a Free Quote</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-bg"></div>
+        <a href="index.html" class="hero-logo-overlay" aria-label="Denver Interior & Doors Co. Home">
+            <img src="assets/logo.png" alt="Denver Interior & Doors Co." class="hero-logo-img">
+        </a>
+        <div class="hero-video-container">
+            <video class="hero-video active" muted playsinline poster="assets/hero-bg.jpg">
+                <source src="assets/videos/4480441-hd_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
+            <video class="hero-video" muted playsinline poster="assets/hero-bg.jpg">
+                <source src="assets/videos/5972114-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            </video>
+            <video class="hero-video" muted playsinline poster="assets/hero-bg.jpg">
+                <source src="assets/videos/5972649-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            </video>
+            <video class="hero-video" muted playsinline poster="assets/hero-bg.jpg">
+                <source src="assets/videos/5972654-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            </video>
+            <video class="hero-video" muted playsinline poster="assets/hero-bg.jpg">
+                <source src="assets/videos/5973233-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            </video>
+            <video class="hero-video" muted playsinline poster="assets/hero-bg.jpg">
+                <source src="assets/videos/5973238-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <span class="hero-label">{{HERO_LABEL}}</span>
-                <h1 class="hero-title">{{HERO_TITLE}}</h1>
-                <p class="hero-desc">{{HERO_DESCRIPTION}}</p>
-                <a href="tel:{{PHONE_LINK}}" class="btn btn-primary btn-lg">{{HERO_CTA}}</a>
+                <span class="hero-label">Your Local Interior Woodcrafter</span>
+                <h1 class="hero-title">Interior Door Installation & Finish Carpentry in Denver, CO</h1>
+                <p class="hero-desc">Specializing in custom interior doors, trim, built-ins, & finish carpentry for
+                    residential and commercial properties.</p>
+                <div class="hero-quote-wrapper">
+                    <button id="heroQuoteBtn" class="btn btn-primary btn-lg">Get a Free Quote</button>
+                    <div id="heroQuoteFormContainer" class="hero-quote-container">
+                        <form id="heroShortForm" class="hero-form">
+                            <div class="form-grid">
+                                <input type="text" placeholder="Name" required class="form-input">
+                                <input type="tel" placeholder="Phone" required class="form-input">
+                            </div>
+                            <input type="email" placeholder="Email" required class="form-input">
+                            <textarea placeholder="Brief project details..." rows="3" class="form-input"></textarea>
+                            <button type="submit" class="btn btn-primary btn-full">Request Quote</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="hero-badges">
                     <div class="badge">
                         <div class="badge-icon google">
@@ -83,15 +107,13 @@
                             </svg>
                         </div>
                         <div class="badge-content">
-                            <span class="badge-rating">{{RATING}} <span class="stars">★★★★★</span></span>
-                            <span class="badge-label">{{RATING_LABEL}}</span>
+                            <span class="badge-rating">5.0 <span class="stars">★★★★★</span></span>
+                            <span class="badge-label">Google Reviews</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <img src="assets/hero-logo.png" alt="{{BUSINESS_NAME}}" class="hero-logo">
-            </div>
+
         </div>
     </section>
 
@@ -109,7 +131,7 @@
                     </div>
                     <div class="contact-card-content">
                         <span class="contact-card-label">Call Us</span>
-                        <span class="contact-card-value">{{PHONE_DISPLAY}}</span>
+                        <span class="contact-card-value">(720) 555-0123</span>
                     </div>
                 </a>
                 <a href="mailto:{{EMAIL}}" class="contact-card">
@@ -122,7 +144,7 @@
                     </div>
                     <div class="contact-card-content">
                         <span class="contact-card-label">Email Us</span>
-                        <span class="contact-card-value">{{EMAIL}}</span>
+                        <span class="contact-card-value">hello@denverinteriordoors.com</span>
                     </div>
                 </a>
                 <div class="contact-card hours">
@@ -134,7 +156,7 @@
                     </div>
                     <div class="contact-card-content">
                         <span class="contact-card-label">Hours</span>
-                        <span class="contact-card-value">{{HOURS}}</span>
+                        <span class="contact-card-value">Mon - Fri: 8am - 5pm</span>
                     </div>
                 </div>
             </div>
@@ -147,7 +169,8 @@
             <div class="section-header">
                 <span class="section-label">What We Do</span>
                 <h2 class="section-title">Our Professional Services</h2>
-                <p class="section-desc">{{SERVICES_DESCRIPTION}}</p>
+                <p class="section-desc">Denver Interior & Doors Co. provides professional finish carpentry and door
+                    installation services. We transform homes and commercial spaces with unmatched craftsmanship.</p>
             </div>
             <div class="services-grid">
                 <!-- Service Card 1 -->
@@ -158,8 +181,9 @@
                             <path d="M8 11l3 3 5-5"></path>
                         </svg>
                     </div>
-                    <h3 class="service-title">{{SERVICE_1_TITLE}}</h3>
-                    <p class="service-desc">{{SERVICE_1_DESC}}</p>
+                    <h3 class="service-title">Interior Door Installation</h3>
+                    <p class="service-desc">We replace hollow, flimsy builder-grade doors with solid-core options that
+                        dampen sound, close with a satisfying "thud," and elevate the feel of every room.</p>
                 </div>
                 <!-- Service Card 2 -->
                 <div class="service-card">
@@ -170,8 +194,10 @@
                             <line x1="9" y1="21" x2="9" y2="9"></line>
                         </svg>
                     </div>
-                    <h3 class="service-title">{{SERVICE_2_TITLE}}</h3>
-                    <p class="service-desc">{{SERVICE_2_DESC}}</p>
+                    <h3 class="service-title">Trim & Baseboard Installation</h3>
+                    <p class="service-desc">Whether you want the clean, modern lines of square stock or the classic
+                        elegance of colonial moulding, our precision installation makes the difference between "done"
+                        and "designed."</p>
                 </div>
                 <!-- Service Card 3 -->
                 <div class="service-card">
@@ -181,8 +207,9 @@
                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                         </svg>
                     </div>
-                    <h3 class="service-title">{{SERVICE_3_TITLE}}</h3>
-                    <p class="service-desc">{{SERVICE_3_DESC}}</p>
+                    <h3 class="service-title">Custom Built-Ins</h3>
+                    <p class="service-desc">Our custom built-ins are designed to fit your specific nook, cranny, or wall
+                        perfectly—giving you storage that looks like it was part of the original blueprint.</p>
                 </div>
                 <!-- Service Card 4 -->
                 <div class="service-card">
@@ -192,8 +219,9 @@
                                 d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
                         </svg>
                     </div>
-                    <h3 class="service-title">{{SERVICE_4_TITLE}}</h3>
-                    <p class="service-desc">{{SERVICE_4_DESC}}</p>
+                    <h3 class="service-title">Cabinet Installation</h3>
+                    <p class="service-desc">We provide laser-level precision installation for IKEA, semi-custom, and
+                        fully custom cabinetry, ensuring every door and drawer operates perfectly.</p>
                 </div>
                 <!-- Service Card 5 -->
                 <div class="service-card">
@@ -204,8 +232,9 @@
                             <line x1="12" y1="16" x2="12.01" y2="16"></line>
                         </svg>
                     </div>
-                    <h3 class="service-title">{{SERVICE_5_TITLE}}</h3>
-                    <p class="service-desc">{{SERVICE_5_DESC}}</p>
+                    <h3 class="service-title">Wall & Ceiling Treatments</h3>
+                    <p class="service-desc">From farmhouse shiplap to elegant wainscoting, we create accent walls that
+                        become the focal point of your home.</p>
                 </div>
                 <!-- Service Card 6 -->
                 <div class="service-card">
@@ -216,8 +245,9 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="service-title">{{SERVICE_6_TITLE}}</h3>
-                    <p class="service-desc">{{SERVICE_6_DESC}}</p>
+                    <h3 class="service-title">Custom Woodworking</h3>
+                    <p class="service-desc">From library ladders to fireplace mantels, we tackle unique woodworking
+                        projects that require creative problem-solving and fine joinery.</p>
                 </div>
             </div>
         </div>
@@ -229,63 +259,99 @@
             <div class="about-grid">
                 <div class="about-content">
                     <span class="section-label">About Us</span>
-                    <h2 class="section-title">{{ABOUT_TITLE}}</h2>
-                    <p class="about-text">{{ABOUT_TEXT_1}}</p>
-                    <p class="about-text">{{ABOUT_TEXT_2}}</p>
+                    <h2 class="section-title">About Denver Interior & Doors Co.</h2>
+                    <p class="about-text">Established in 2017, Denver Interior & Doors Co. has been transforming homes
+                        and commercial spaces across the Denver metro area. We started with a simple mission: to provide
+                        reliable, high-quality finish carpentry that homeowners can trust.</p>
+                    <p class="about-text">Over the years, we have successfully hung thousands of doors and completed
+                        hundreds of custom woodworking projects. We believe in doing it right the first time, treating
+                        your home with respect, and leaving you with a space that feels brand new.</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <span class="stat-number">{{STAT_1_NUMBER}}</span>
-                            <span class="stat-label">{{STAT_1_LABEL}}</span>
+                            <span class="stat-number">2017</span>
+                            <span class="stat-label">Established</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">{{STAT_2_NUMBER}}</span>
-                            <span class="stat-label">{{STAT_2_LABEL}}</span>
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Doors Installed</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">{{STAT_3_NUMBER}}</span>
-                            <span class="stat-label">{{STAT_3_LABEL}}</span>
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Projects Done</span>
                         </div>
                     </div>
                 </div>
                 <div class="about-visual">
-                    <div class="visual-card">
-                        <div class="visual-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                <polyline points="9 12 12 15 16 10"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>{{FEATURE_1_TITLE}}</h4>
-                            <p>{{FEATURE_1_DESC}}</p>
-                        </div>
-                    </div>
-                    <div class="visual-card">
-                        <div class="visual-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>{{FEATURE_2_TITLE}}</h4>
-                            <p>{{FEATURE_2_DESC}}</p>
-                        </div>
-                    </div>
-                    <div class="visual-card">
-                        <div class="visual-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
-                                </path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>{{FEATURE_3_TITLE}}</h4>
-                            <p>{{FEATURE_3_DESC}}</p>
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/carpenter-works-with-tree-scaled.jpg"
+                            alt="Master carpenter working on a custom timber project" loading="lazy"
+                            class="about-image">
+                        <div class="about-badge">
+                            <span class="about-badge-number">10+</span>
+                            <span class="about-badge-text">Years of<br>Excellence</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Work Gallery -->
+    <section class="gallery" id="work">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Portfolio</span>
+                <h2 class="section-title">Latest <strong>Masterpieces</strong></h2>
+                <p class="section-desc">A glimpse into the diverse range of custom projects we've delivered for our
+                    satisfied clients.</p>
+            </div>
+            <div class="gallery-grid">
+                <!-- Item 1 (Landscape) -->
+                <div class="gallery-item">
+                    <img src="assets/images/1383-Raleigh-St_DiningA-1536x1024.jpg"
+                        alt="Custom dining room woodwork and trim" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Dining Room Update</h3>
+                            <button class="btn-text">View Project</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 (Vertical) -->
+                <div class="gallery-item">
+                    <img src="assets/images/20210517_135658-1152x1536.jpg" alt="Custom interior door installation"
+                        loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Solid Core Door</h3>
+                            <button class="btn-text">View Project</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 (Vertical) -->
+                <div class="gallery-item">
+                    <img src="assets/images/EXT-Door-2-1152x1536.jpg" alt="Exterior door replacement" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Entryway Transformation</h3>
+                            <button class="btn-text">View Project</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 (Vertical/Landscape) -->
+                <div class="gallery-item">
+                    <img src="assets/images/Exterior-Door-1152x1536.jpg" alt="Custom exterior door fit and finish"
+                        loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Custom Exterior Work</h3>
+                            <button class="btn-text">View Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-cta">
+                <a href="our-work/index.html" class="btn btn-secondary">View All Projects</a>
             </div>
         </div>
     </section>
@@ -306,13 +372,15 @@
                         </svg>
                     </div>
                     <div class="featured-review-content">
-                        <p class="featured-review-quote">"{{FEATURED_REVIEW_HEADLINE}}"</p>
-                        <p class="featured-review-text">{{FEATURED_REVIEW_TEXT}}</p>
+                        <p class="featured-review-quote">"The best contractor experience we've ever had."</p>
+                        <p class="featured-review-text">The team at Denver Interior & Doors transformed our home. The
+                            new solid core doors make such a difference in sound reduction. Highly recommend for their
+                            professionalism and attention to detail.</p>
                         <div class="featured-review-author">
-                            <div class="featured-author-avatar">{{FEATURED_REVIEW_INITIALS}}</div>
+                            <div class="featured-author-avatar">SM</div>
                             <div class="featured-author-info">
-                                <span class="featured-author-name">{{FEATURED_REVIEW_NAME}}</span>
-                                <span class="featured-author-service">{{FEATURED_REVIEW_SERVICE}}</span>
+                                <span class="featured-author-name">Sarah M.</span>
+                                <span class="featured-author-service">Door Replacement</span>
                             </div>
                         </div>
                     </div>
@@ -331,34 +399,37 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"{{TESTIMONIAL_1_TEXT}}"</p>
+                    <p class="testimonial-text">"Incredible craftsmanship on our custom built-ins. They matched our
+                        existing trim perfectly."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">{{TESTIMONIAL_1_INITIALS}}</div>
+                        <div class="author-avatar">JP</div>
                         <div class="author-info">
-                            <span class="author-name">{{TESTIMONIAL_1_NAME}}</span>
-                            <span class="author-location">{{TESTIMONIAL_1_SERVICE}}</span>
+                            <span class="author-name">James P.</span>
+                            <span class="author-location">Highlands Ranch, CO</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"{{TESTIMONIAL_2_TEXT}}"</p>
+                    <p class="testimonial-text">"Professional, on time, and the quality of the trim work is outstanding.
+                        Will definitely hire again."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">{{TESTIMONIAL_2_INITIALS}}</div>
+                        <div class="author-avatar">ER</div>
                         <div class="author-info">
-                            <span class="author-name">{{TESTIMONIAL_2_NAME}}</span>
-                            <span class="author-location">{{TESTIMONIAL_2_SERVICE}}</span>
+                            <span class="author-name">Emily R.</span>
+                            <span class="author-location">Littleton, CO</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"{{TESTIMONIAL_3_TEXT}}"</p>
+                    <p class="testimonial-text">"We love our new shiplap accent wall. It completely changed the look of
+                        our living room!"</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">{{TESTIMONIAL_3_INITIALS}}</div>
+                        <div class="author-avatar">MK</div>
                         <div class="author-info">
-                            <span class="author-name">{{TESTIMONIAL_3_NAME}}</span>
-                            <span class="author-location">{{TESTIMONIAL_3_SERVICE}}</span>
+                            <span class="author-name">Mike K.</span>
+                            <span class="author-location">Denver, CO</span>
                         </div>
                     </div>
                 </div>
@@ -371,10 +442,10 @@
         <div class="container">
             <div class="business-card">
                 <div class="business-card-header">
-                    <img src="assets/logo.png" alt="{{BUSINESS_NAME}}" class="business-card-logo">
+                    <img src="assets/logo.png" alt="Denver Interior & Doors Co." class="business-card-logo">
                     <div class="business-card-intro">
-                        <h2>{{BUSINESS_NAME}}</h2>
-                        <p class="tagline">{{TAGLINE}}</p>
+                        <h2>Denver Interior & Doors Co.</h2>
+                        <p class="tagline">High-End Finish Carpentry & Custom Woodworking</p>
                     </div>
                 </div>
 
@@ -386,7 +457,7 @@
                                 <path
                                     d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                             </svg>
-                            <a href="tel:{{PHONE_LINK}}">{{PHONE_DISPLAY}}</a>
+                            <a href="tel:7205550123">(720) 555-0123</a>
                         </div>
                         <div class="detail-item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -394,7 +465,7 @@
                                 </path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+                            <a href="mailto:hello@denverinteriordoors.com">hello@denverinteriordoors.com</a>
                         </div>
                     </div>
 
@@ -405,25 +476,25 @@
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
-                            <span>{{HOURS_FULL}}</span>
+                            <span>Mon - Fri: 8am - 5pm</span>
                         </div>
                     </div>
 
                     <div class="business-card-section">
                         <h3>Service Area</h3>
-                        <p>{{SERVICE_AREA}}</p>
+                        <p>Serving the entire Denver Metro Area</p>
                     </div>
                 </div>
 
                 <div class="business-card-cta">
-                    <a href="tel:{{PHONE_LINK}}" class="btn btn-primary btn-lg">
+                    <a href="tel:7205550123" class="btn btn-primary btn-lg">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path
                                 d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                         </svg>
-                        {{HERO_CTA}}
+                        Get a Free Quote
                     </a>
-                    <a href="mailto:{{EMAIL}}" class="btn btn-secondary">
+                    <a href="mailto:hello@denverinteriordoors.com" class="btn btn-secondary">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
                             </path>
@@ -434,9 +505,9 @@
                 </div>
 
                 <div class="business-card-badges">
-                    <span class="badge-item">{{BADGE_1}}</span>
-                    <span class="badge-item">{{BADGE_2}}</span>
-                    <span class="badge-item">{{BADGE_3}}</span>
+                    <span class="badge-item">Bonded & Insured</span>
+                    <span class="badge-item">5-Star Rated</span>
+                    <span class="badge-item">Locally Owned</span>
                 </div>
             </div>
         </div>
@@ -447,49 +518,119 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="footer-logo" aria-label="{{BUSINESS_NAME}}">
-                        <img src="assets/logo.png" alt="{{BUSINESS_NAME}}" class="footer-logo-img">
+                    <a href="index.html" class="footer-logo" aria-label="Denver Interior & Doors Co.">
+                        <img src="assets/logo.png" alt="Denver Interior & Doors Co." class="footer-logo-img">
                     </a>
-                    <p class="footer-desc">{{FOOTER_DESCRIPTION}}</p>
-                    <div class="footer-certifications">
-                        <span class="certification">{{BADGE_1}}</span>
-                        <span class="certification">{{BADGE_2}}</span>
-                    </div>
+                    <p class="footer-desc">High-End Finish Carpentry & Custom Woodworking serving the Denver Metro area.
+                    </p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#reviews">Reviews</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services/index.html">Services</a></li>
+                        <li><a href="our-work/index.html">Our Work</a></li>
+                        <li><a href="about/index.html">About Us</a></li>
+                        <li><a href="testimonials/index.html">Reviews</a></li>
+                        <li><a href="contact/index.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-services">
-                    <h4>Services</h4>
+                    <h4>Our Services</h4>
                     <ul>
-                        <li><a href="#services">{{SERVICE_1_TITLE}}</a></li>
-                        <li><a href="#services">{{SERVICE_2_TITLE}}</a></li>
-                        <li><a href="#services">{{SERVICE_3_TITLE}}</a></li>
-                        <li><a href="#services">{{SERVICE_4_TITLE}}</a></li>
-                        <li><a href="#services">{{SERVICE_5_TITLE}}</a></li>
+                        <li><a href="services/interior-doors/index.html">Interior Doors</a></li>
+                        <li><a href="services/trim-baseboard/index.html">Trim & Baseboards</a></li>
+                        <li><a href="services/built-ins/index.html">Custom Built-Ins</a></li>
+                        <li><a href="services/cabinets/index.html">Cabinet Installation</a></li>
+                        <li><a href="services/wall-ceiling/index.html">Wall & Ceiling Treatments</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p><a href="tel:{{PHONE_LINK}}">{{PHONE_DISPLAY}}</a></p>
-                    <p><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></p>
-                    <p>{{LOCATION}}</p>
+                    <h4>Contact Us</h4>
+                    <p><a href="tel:7205550123">(720) 555-0123</a></p>
+                    <p><a href="mailto:hello@denverinteriordoors.com">hello@denverinteriordoors.com</a></p>
+                    <p>Serving the entire Denver Metro Area</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; {{YEAR}} {{BUSINESS_NAME}}. All rights reserved.</p>
+                <p>&copy; 2026 Denver Interior & Doors Co. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <!-- AI Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1v-5a7 7 0 0 1 7-7h1V3.73C9 3.39 8.6 2.74 8.6 2a2 2 0 0 1 2-2z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="chatbot-header-text">
+                    <span class="chatbot-title">Crafstman AI</span>
+                    <span class="chatbot-status">Online</span>
+                </div>
+            </div>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close Chat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message bot">
+                <div class="message-content">
+                    <p>Hi there! 👋 I'm the Denver Interior & Doors AI assistant. How can I help you with your project
+                        today?</p>
+                </div>
+                <span class="message-time">Just now</span>
+            </div>
+            <div class="chat-message bot">
+                <div class="message-content">
+                    <p>I can help you with:</p>
+                    <ul>
+                        <li>Scheduling a free estimate</li>
+                        <li>Door styles & options</li>
+                        <li>Trim & moulding questions</li>
+                    </ul>
+                </div>
+                <span class="message-time">Just now</span>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Type a message..." class="chatbot-input">
+            <button class="chatbot-send" aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open Chat">
+        <div class="chatbot-toggle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-open">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-close">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <span class="chatbot-toggle-label">Chat with us</span>
+    </button>
+
 </body>
 
 </html>

@@ -5,11 +5,112 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize all components
     initNavigation();
+    initHeroVideo();
     initSmoothScroll();
     initScrollEffects();
     initForms();
     initReviewCarousel();
+    initChatbot();
 });
+
+/* ===================================
+   CHATBOT WIDGET
+   =================================== */
+function initChatbot() {
+    const toggleBtn = document.getElementById('chatbotToggle');
+    const closeBtn = document.getElementById('chatbotClose');
+    const widget = document.getElementById('chatbotWidget');
+
+    if (!toggleBtn || !widget) return;
+
+    function toggleChat() {
+        const isHidden = !widget.classList.contains('active');
+
+        if (isHidden) {
+            widget.classList.add('active');
+            toggleBtn.classList.add('active');
+        } else {
+            widget.classList.remove('active');
+            toggleBtn.classList.remove('active');
+        }
+    }
+
+    toggleBtn.addEventListener('click', toggleChat);
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            widget.classList.remove('active');
+            toggleBtn.classList.remove('active');
+        });
+    }
+
+    // Optional: Auto-open after a delay (can be annoying, so maybe just a wiggle or notification)
+    // setTimeout(() => {
+    //    if (!widget.classList.contains('active')) {
+    //        toggleBtn.classList.add('bounce'); // Would need keyframes
+    //    }
+    // }, 5000);
+}
+
+/* ===================================
+   HERO VIDEO CAROUSEL
+   =================================== */
+function initHeroVideo() {
+    const videos = document.querySelectorAll('.hero-video');
+    if (!videos.length) return;
+
+    const overlapTime = 1.5; // Seconds of overlap (matches CSS transition)
+
+    // Play the first video
+    const firstVideo = videos[0];
+    firstVideo.play().catch(error => {
+        console.log("Video autoplay prevented:", error);
+    });
+
+    videos.forEach((video, index) => {
+        // Use timeupdate to trigger next video before current one ends
+        video.addEventListener('timeupdate', () => {
+            const timeRemaining = video.duration - video.currentTime;
+
+            // Check if we're entering the overlap window and haven't triggered yet
+            if (timeRemaining < overlapTime && !video.dataset.transitioning && !video.paused) {
+                video.dataset.transitioning = "true";
+
+                // Calculate next index
+                const nextIndex = (index + 1) % videos.length;
+                const nextVideo = videos[nextIndex];
+
+                // Prepare and play next video
+                nextVideo.currentTime = 0;
+                nextVideo.classList.add('active');
+                nextVideo.play().catch(e => console.log("Next video play prevented:", e));
+
+                // Fade out current video
+                video.classList.remove('active');
+
+                // Cleanup after transition completes
+                setTimeout(() => {
+                    video.pause();
+                    video.currentTime = 0;
+                    delete video.dataset.transitioning;
+                }, overlapTime * 1000);
+            }
+        });
+
+        // Fallback catch-all in case timeupdate misses or logic drifts
+        video.addEventListener('ended', () => {
+            if (!video.dataset.transitioning) {
+                const nextIndex = (index + 1) % videos.length;
+                const nextVideo = videos[nextIndex];
+
+                video.classList.remove('active');
+                nextVideo.classList.add('active');
+                nextVideo.play().catch(e => console.log("Next video play prevented:", e));
+            }
+        });
+    });
+}
 
 /* ===================================
    NAVIGATION
@@ -176,6 +277,35 @@ function initForms() {
             handleFormSubmit(this, 'Thank you! Your message has been sent.');
         });
     }
+
+    // Hero Quote Form Expansion
+    const heroQuoteBtn = document.getElementById('heroQuoteBtn');
+    const heroQuoteContainer = document.getElementById('heroQuoteFormContainer');
+    const heroShortForm = document.getElementById('heroShortForm');
+
+    if (heroQuoteBtn && heroQuoteContainer) {
+        heroQuoteBtn.addEventListener('click', function () {
+            // Hide button
+            this.style.display = 'none';
+            // Show form
+            heroQuoteContainer.classList.add('expanded');
+            // Focus first input
+            setTimeout(() => {
+                const firstInput = heroShortForm.querySelector('input');
+                if (firstInput) firstInput.focus();
+            }, 300);
+        });
+    }
+
+    if (heroShortForm) {
+        heroShortForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            handleFormSubmit(this, 'Quote request received! We will call you shortly.');
+
+            // Optional: Collapse form after delay? 
+            // For now, keep it open to show success clearly or maybe reset it.
+        });
+    }
 }
 
 function handleFormSubmit(form, successMessage) {
@@ -226,14 +356,14 @@ function showNotification(message, type = 'success') {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        background: ${type === 'success' ? 'var(--primary, #2563eb)' : 'var(--error, #EF4444)'};
+        background: ${type === 'success' ? 'var(--success, #3A7A52)' : 'var(--destructive, #DC2626)'};
         color: white;
         padding: 16px 24px;
         border-radius: 12px;
         display: flex;
         align-items: center;
         gap: 16px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 40px rgba(26, 23, 20, 0.2);
         z-index: 10000;
         animation: slideIn 0.3s ease;
     `;
@@ -357,5 +487,5 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
 });
 
 // Console branding (customize as needed)
-console.log('%c🚀 Website Template', 'font-size: 24px; font-weight: bold; color: #2563eb;');
-console.log('%cBuilt with the Website Template Starter', 'font-size: 14px; color: #3b82f6;');
+console.log('%c🚀 Denver Interior & Doors', 'font-size: 24px; font-weight: bold; color: #1A1714;');
+console.log('%cCrafted with care.', 'font-size: 14px; color: #B07D3A;');
