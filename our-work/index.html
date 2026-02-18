@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | Denver Interior & Doors Co.</title>
+    <meta name="description"
+        content="View our portfolio of custom interior door installations, trim work, built-ins, and cabinetry projects in the Denver Metro area.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Page specific styles - to be moved to styles.css later if reused */
+        .portfolio-header {
+            padding: var(--space-24) 0 var(--space-12);
+            text-align: center;
+            background: var(--background-secondary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-6);
+            padding: var(--space-12) 0 var(--space-24);
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: var(--space-6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-caption {
+            color: #fff;
+        }
+
+        .portfolio-caption h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--space-2);
+            font-weight: 600;
+        }
+
+        .portfolio-caption p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" tabindex="0">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../services/index.html" class="nav-link">Services</a></li>
+                <li><a href="index.html" class="nav-link active">Our Work</a></li>
+                <li><a href="../about/index.html" class="nav-link">About</a></li>
+                <li><a href="../testimonials/index.html" class="nav-link">Reviews</a></li>
+                <li><a href="../contact/index.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:7205550123" class="nav-phone">
+                    <div class="phone-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                    </div>
+                    <span>(720) 555-0123</span>
+                </a>
+                <a href="../contact/index.html" class="btn btn-primary btn-nav-cta">Get a Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="portfolio-header">
+        <div class="container">
+            <span class="section-label">Portfolio</span>
+            <h1 class="section-title">Our Recent Projects</h1>
+            <p class="section-desc">See the quality and craftsmanship we bring to every Denver home.</p>
+        </div>
+    </header>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="portfolio-grid">
+                <!-- Item 1 -->
+                <div class="portfolio-item">
+                    <img src="../assets/images/1383-Raleigh-St_DiningA-1536x1024.jpg" alt="Dining Room Wainscoting"
+                        class="portfolio-img" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-caption">
+                            <h3>Custom Wainscoting</h3>
+                            <p>Dining Room Refresh</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="portfolio-item">
+                    <img src="../assets/images/20210517_135658-1152x1536.jpg" alt="Solid Core Door Install"
+                        class="portfolio-img" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-caption">
+                            <h3>Solid Core Door Upgrade</h3>
+                            <p>Full Home Replacement</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="portfolio-item">
+                    <img src="../assets/images/carpenter-works-with-tree-scaled.jpg" alt="Custom Woodworking"
+                        class="portfolio-img" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-caption">
+                            <h3>Live Edge Mantel</h3>
+                            <p>Custom Woodworking</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="portfolio-item">
+                    <img src="../assets/images/EXT-Door-2-1152x1536.jpg" alt="Exterior Door" class="portfolio-img"
+                        loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-caption">
+                            <h3>Entry Door Installation</h3>
+                            <p>Exterior Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="portfolio-item">
+                    <img src="../assets/images/Exterior-Door-1152x1536.jpg" alt="Door Hardware Detail"
+                        class="portfolio-img" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-caption">
+                            <h3>Hardware Upgrade</h3>
+                            <p>Detail Work</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 6 (Duplicate for grid volume) -->
+                <div class="portfolio-item">
+                    <img src="../assets/images/1383-Raleigh-St_DiningA-1536x1024.jpg" alt="Trim Work"
+                        class="portfolio-img" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-caption">
+                            <h3>Baseboard Installation</h3>
+                            <p>Whole House Trim</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <p class="section-desc">Ready to start your own project?</p>
+                <a href="../contact/index.html" class="btn btn-primary btn-lg" style="margin-top: 1rem;">Request a
+                    Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo" aria-label="Denver Interior & Doors Co.">
+                        <img src="../assets/logo.png" alt="Denver Interior & Doors Co." class="footer-logo-img">
+                    </a>
+                    <p class="footer-desc">High-End Finish Carpentry & Custom Woodworking serving the Denver Metro area.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="index.html">Our Work</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../testimonials/index.html">Reviews</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="../services/interior-doors/index.html">Interior Doors</a></li>
+                        <li><a href="../services/trim-baseboard/index.html">Trim & Baseboards</a></li>
+                        <li><a href="../services/built-ins/index.html">Custom Built-Ins</a></li>
+                        <li><a href="../services/cabinets/index.html">Cabinet Installation</a></li>
+                        <li><a href="../services/wall-ceiling/index.html">Wall & Ceiling Treatments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><a href="tel:7205550123">(720) 555-0123</a></p>
+                    <p><a href="mailto:hello@denverinteriordoors.com">hello@denverinteriordoors.com</a></p>
+                    <p>Serving the entire Denver Metro Area</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Denver Interior & Doors Co. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

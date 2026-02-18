@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Advice & Inspiration | Denver Interior & Doors Co.</title>
+    <meta name="description"
+        content="Tips, trends, and advice on finish carpentry, interior doors, and home value improvements from Denver's local experts.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-8);
+        }
+
+        @media (max-width: 900px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .blog-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--background-subtle);
+        }
+
+        .blog-card-content {
+            padding: var(--space-6);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: var(--space-2);
+            font-weight: 600;
+        }
+
+        .blog-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-3);
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--foreground-muted);
+            font-size: 0.95rem;
+            margin-bottom: var(--space-4);
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            color: var(--foreground-subtle);
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: var(--space-4);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: var(--background-subtle);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-8);
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            margin-bottom: var(--space-4);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: var(--space-2);
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-list li {
+            margin-bottom: var(--space-2);
+        }
+
+        .category-list a {
+            color: var(--foreground-muted);
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            transition: color 0.2s;
+        }
+
+        .category-list a:hover {
+            color: var(--accent);
+        }
+
+        .category-count {
+            background: var(--card);
+            padding: 0.1rem 0.4rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            color: var(--foreground-subtle);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" tabindex="0">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../services/index.html" class="nav-link">Services</a></li>
+                <li><a href="../our-work/index.html" class="nav-link">Our Work</a></li>
+                <li><a href="../about/index.html" class="nav-link">About</a></li>
+                <li><a href="../testimonials/index.html" class="nav-link">Reviews</a></li>
+                <li><a href="../contact/index.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:7205550123" class="nav-phone">
+                    <div class="phone-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                    </div>
+                    <span>(720) 555-0123</span>
+                </a>
+                <a href="../contact/index.html" class="btn btn-primary btn-nav-cta">Get a Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Expert Advice & Inspiration</h1>
+            <p class="page-subtitle">Tips, trends, and insights from Denver's premier finish carpentry team.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="blog-layout">
+
+                <!-- Main Content -->
+                <main>
+                    <div class="blog-grid">
+                        <!-- Post 1 -->
+                        <article class="blog-card">
+                            <a href="5-signs-replace-interior-doors/index.html" class="blog-card-link">
+                                <img src="../assets/images/1383-Raleigh-St_DiningA-1536x1024.jpg"
+                                    alt="Dining room needing door replacement" class="blog-card-image" loading="lazy">
+                                <div class="blog-card-content">
+                                    <span class="blog-category">Door Installation</span>
+                                    <h2 class="blog-title">5 Signs It's Time to Replace Your Interior Doors</h2>
+                                    <p class="blog-excerpt">Are your doors sticking, hollow, or just outdated? Here is
+                                        how to know when to upgrade.</p>
+                                    <div class="blog-meta">
+                                        <span>Feb 15, 2026</span>
+                                        <span>5 min read</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <!-- Post 2 -->
+                        <article class="blog-card">
+                            <a href="trim-styles-modern-vs-traditional/index.html" class="blog-card-link">
+                                <img src="../assets/images/20210517_135658-1152x1536.jpg" alt="Modern trim details"
+                                    class="blog-card-image" loading="lazy">
+                                <div class="blog-card-content">
+                                    <span class="blog-category">Design Trends</span>
+                                    <h2 class="blog-title">Trim Styles: Modern vs. Traditional</h2>
+                                    <p class="blog-excerpt">Exploring the difference between step casing and colonial
+                                        moulding. Which fits your home?</p>
+                                    <div class="blog-meta">
+                                        <span>Feb 10, 2026</span>
+                                        <span>6 min read</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <!-- Post 3 -->
+                        <article class="blog-card">
+                            <a href="hollow-vs-solid-core-doors/index.html" class="blog-card-link">
+                                <img src="../assets/images/EXT-Door-2-1152x1536.jpg" alt="Solid core door cutaway"
+                                    class="blog-card-image" loading="lazy">
+                                <div class="blog-card-content">
+                                    <span class="blog-category">Product Guide</span>
+                                    <h2 class="blog-title">Hollow vs. Solid Core: Is it Worth the Cost?</h2>
+                                    <p class="blog-excerpt">Why investing in solid core doors changes the sound and feel
+                                        of your entire home.</p>
+                                    <div class="blog-meta">
+                                        <span>Feb 2, 2026</span>
+                                        <span>4 min read</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <!-- Post 4 -->
+                        <article class="blog-card">
+                            <a href="maximizing-storage-custom-built-ins/index.html" class="blog-card-link">
+                                <img src="../assets/images/carpenter-works-with-tree-scaled.jpg"
+                                    alt="Custom built-in bookshevles" class="blog-card-image" loading="lazy">
+                                <div class="blog-card-content">
+                                    <span class="blog-category">Home Value</span>
+                                    <h2 class="blog-title">Maximizing Storage with Custom Built-Ins</h2>
+                                    <p class="blog-excerpt">Turn awkward nooks into functional storage spaces that add
+                                        real value to your property.</p>
+                                    <div class="blog-meta">
+                                        <span>Jan 28, 2026</span>
+                                        <span>7 min read</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+
+                    <!-- Pagination (Placeholder) -->
+                    <div style="margin-top: var(--space-8); text-align: center;">
+                        <button class="btn btn-secondary" disabled>Previous</button>
+                        <span style="margin: 0 var(--space-4); font-weight: 600;">Page 1 of 1</span>
+                        <button class="btn btn-secondary" disabled>Next</button>
+                    </div>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="#">Door Installation <span class="category-count">12</span></a></li>
+                            <li><a href="#">Trim & Moulding <span class="category-count">8</span></a></li>
+                            <li><a href="#">Design Trends <span class="category-count">5</span></a></li>
+                            <li><a href="#">Home Maintenance <span class="category-count">4</span></a></li>
+                            <li><a href="#">Project Spotlights <span class="category-count">7</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Need a Quote?</h3>
+                        <p style="margin-bottom: var(--space-4); font-size: 0.95rem; color: var(--foreground-muted);">
+                            Ready to transform your home? Get a free, detailed estimate for your next project.
+                        </p>
+                        <a href="../contact/index.html" class="btn btn-primary btn-full">Get Started</a>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo" aria-label="Denver Interior & Doors Co.">
+                        <img src="../assets/logo.png" alt="Denver Interior & Doors Co." class="footer-logo-img">
+                    </a>
+                    <p class="footer-desc">High-End Finish Carpentry & Custom Woodworking serving the Denver Metro area.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../our-work/index.html">Our Work</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../testimonials/index.html">Reviews</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="../services/interior-doors/index.html">Interior Doors</a></li>
+                        <li><a href="../services/trim-baseboard/index.html">Trim & Baseboards</a></li>
+                        <li><a href="../services/built-ins/index.html">Custom Built-Ins</a></li>
+                        <li><a href="../services/cabinets/index.html">Cabinet Installation</a></li>
+                        <li><a href="../services/wall-ceiling/index.html">Wall & Ceiling Treatments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><a href="tel:7205550123">(720) 555-0123</a></p>
+                    <p><a href="mailto:hello@denverinteriordoors.com">hello@denverinteriordoors.com</a></p>
+                    <p>Serving the entire <a href="../locations/index.html"
+                            style="color: inherit; text-decoration: underline;">Denver Metro Area</a></p>
+                </div>
+            </div>
+            <div class="footer-locations"
+                style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid #332f2c;">
+                <h4 style="font-size: 0.9rem; color: var(--foreground-muted); margin-bottom: var(--space-4);">Areas We
+                    Serve</h4>
+                <div
+                    style="display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: 0.85rem; color: var(--foreground-subtle);">
+                    <a href="../locations/index.html">Denver</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Golden</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Lakewood</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Arvada</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Englewood</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Littleton</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Centennial</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Highlands Ranch</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Denver Interior & Doors Co. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

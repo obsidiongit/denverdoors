@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews | Denver Interior & Doors Co.</title>
+    <meta name="description"
+        content="See what our customers in Denver, Golden, and Lakewood are saying about our interior door handling and finish carpentry services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .review-card {
+            background: var(--card);
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .review-stars {
+            color: #FFB400;
+            /* Gold color for stars */
+            margin-bottom: var(--space-4);
+            font-size: 1.25rem;
+        }
+
+        .review-text {
+            color: var(--foreground-muted);
+            line-height: 1.6;
+            margin-bottom: var(--space-6);
+            flex-grow: 1;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-top: auto;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .author-meta h4 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--foreground);
+        }
+
+        .author-meta p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--foreground-subtle);
+        }
+
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: var(--space-4);
+        }
+
+        .platform-google {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+        }
+
+        .platform-yelp {
+            background-color: #fef2f2;
+            color: #d32323;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" tabindex="0">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../services/index.html" class="nav-link">Services</a></li>
+                <li><a href="../our-work/index.html" class="nav-link">Our Work</a></li>
+                <li><a href="../about/index.html" class="nav-link">About</a></li>
+                <li><a href="index.html" class="nav-link active">Reviews</a></li>
+                <li><a href="../contact/index.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:7205550123" class="nav-phone">
+                    <div class="phone-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                    </div>
+                    <span>(720) 555-0123</span>
+                </a>
+                <a href="../contact/index.html" class="btn btn-primary btn-nav-cta">Get a Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">What Our Customers Say</h1>
+            <p class="page-subtitle">We don't just build doors; we build relationships. Honest reliability is our stamp.
+            </p>
+        </div>
+    </header>
+
+    <!-- Summary Section -->
+    <section class="section-padding" style="background: var(--background-subtle); padding-bottom: 0;">
+        <div class="container">
+            <div style="text-align: center; max-width: 600px; margin: 0 auto; margin-bottom: var(--space-12);">
+                <div
+                    style="font-size: 3rem; font-weight: 700; color: var(--foreground); margin-bottom: var(--space-2);">
+                    5.0</div>
+                <div style="color: #FFB400; font-size: 1.5rem; margin-bottom: var(--space-4);">★★★★★</div>
+                <p>Based on over 100+ projects in the Denver Metro Area. We take pride in 100% customer satisfaction.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Grid -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="reviews-grid">
+
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Absolutely transformed our home in Centennial. We replaced all 15 interior
+                        doors with solid core shaker style, and the noise reduction is incredible. The team was
+                        punctual, clean, and the craftsmanship is top-notch. Highly recommend!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar" style="background: #2b4e6d;">S</div>
+                        <div class="author-meta">
+                            <h4>Sarah Jenkins</h4>
+                            <p>Centennial, CO</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: auto;">
+                        <span class="platform-badge platform-google">Google Review</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"I hired them to build custom bookshelves around our fireplace in Lakewood.
+                        The attention to detail on the trim work matches our unqiue 1960s molding perfectly. It looks
+                        like it was always meant to be there."</p>
+                    <div class="review-author">
+                        <div class="author-avatar" style="background: #a67c52;">M</div>
+                        <div class="author-meta">
+                            <h4>Mike Peterson</h4>
+                            <p>Lakewood, CO</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: auto;">
+                        <span class="platform-badge platform-google">Google Review</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Finally a contractor who shows up when they say they will! We had our crown
+                        molding redone and some wainscoting added to the dining room. Professional efficient, and
+                        respectful of our home."</p>
+                    <div class="review-author">
+                        <div class="author-avatar" style="background: #4a6d4a;">E</div>
+                        <div class="author-meta">
+                            <h4>Emily & Dan R.</h4>
+                            <p>Highlands Ranch, CO</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: auto;">
+                        <span class="platform-badge platform-google">Google Review</span>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The best investment we've made in our Golden home. The solid core doors feel
+                        so premium. They cleaned up every speck of sawdust before leaving each day. True professionals."
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar" style="background: #d4a373;">J</div>
+                        <div class="author-meta">
+                            <h4>James Wilson</h4>
+                            <p>Golden, CO</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: auto;">
+                        <span class="platform-badge platform-google">Google Review</span>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"We needed a custom mudroom bench for our chaotic entryway. They designed
+                        exactly what we needed. Sturdy, beautiful, and functional. Worth every penny."</p>
+                    <div class="review-author">
+                        <div class="author-avatar" style="background: #6c757d;">R</div>
+                        <div class="author-meta">
+                            <h4>Rachel T.</h4>
+                            <p>Arvada, CO</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: auto;">
+                        <span class="platform-badge platform-google">Google Review</span>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Old school craftsmanship. Copied joints, tight miters, no caulk covering up
+                        bad cuts. If you are picky (like me), this is the company to call."</p>
+                    <div class="review-author">
+                        <div class="author-avatar" style="background: #343a40;">D</div>
+                        <div class="author-meta">
+                            <h4>David K.</h4>
+                            <p>Denver, CO</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: auto;">
+                        <span class="platform-badge platform-google">Google Review</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Review CTA -->
+            <div
+                style="margin-top: var(--space-12); text-align: center; background: var(--background-subtle); padding: var(--space-8); border-radius: var(--radius-lg);">
+                <h3 style="margin-bottom: var(--space-4);">Review Us On Google</h3>
+                <p style="max-width: 600px; margin: 0 auto; margin-bottom: var(--space-6);">Your feedback helps us grow
+                    and helps your neighbors find quality craftsmanship. If we've worked with you, we'd love to hear
+                    about your experience.</p>
+                <a href="#" class="btn btn-secondary">Leave a Review</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo" aria-label="Denver Interior & Doors Co.">
+                        <img src="../assets/logo.png" alt="Denver Interior & Doors Co." class="footer-logo-img">
+                    </a>
+                    <p class="footer-desc">High-End Finish Carpentry & Custom Woodworking serving the Denver Metro area.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../our-work/index.html">Our Work</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="index.html">Reviews</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Services -->
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="../services/interior-doors/index.html">Interior Doors</a></li>
+                        <li><a href="../services/trim-baseboard/index.html">Trim & Baseboards</a></li>
+                        <li><a href="../services/built-ins/index.html">Custom Built-Ins</a></li>
+                        <li><a href="../services/cabinets/index.html">Cabinet Installation</a></li>
+                        <li><a href="../services/wall-ceiling/index.html">Wall & Ceiling Treatments</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><a href="tel:7205550123">(720) 555-0123</a></p>
+                    <p><a href="mailto:hello@denverinteriordoors.com">hello@denverinteriordoors.com</a></p>
+                    <p>Serving the entire <a href="../locations/index.html"
+                            style="color: inherit; text-decoration: underline;">Denver Metro Area</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Denver Interior & Doors Co. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

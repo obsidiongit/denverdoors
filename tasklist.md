@@ -35,63 +35,66 @@
 
 ### 2.1 Homepage (`index.html`)
 - [x] Update Hero Section (Background, Copy, CTAs) - *Fixed loop, refined layout (Wider/Centered Nav/Logo Overlay)*
-- [ ] Update Services Grid (Content & Icons)
-- [ ] Update About/Why Choose Us Section
-- [ ] Update Testimonials Section
-- [/] Update Contact/CTA Section
+- [x] Update Services Grid (Content & Icons)
+- [x] Update About/Why Choose Us Section
+- [x] Update Testimonials Section
+- [x] Update Contact/CTA Section
 
 ### 2.2 Services Hub (`services/index.html`)
-- [ ] Create `services/` directory
-- [ ] Duplicate `index.html` as base template
-- [ ] Strip non-essential sections
-- [ ] Build Services Grid Layout
+- [x] Create `services/` directory
+- [x] Duplicate `index.html` as base template
+- [x] Strip non-essential sections
+- [x] Build Services Grid Layout
 
 ### 2.3 Individual Service Pages (`services/[service-name]/index.html`)
-- [ ] Create directory structure for each service
-- [ ] Implement Interior Doors Page
-- [ ] Implement Trim & Baseboard Page
-- [ ] Implement Custom Built-Ins Page
-- [ ] Implement Cabinet Installation Page
-- [ ] Implement Wall & Ceiling Treatments Page
-- [ ] Implement Custom Woodworking Page
+- [x] Create directory for each service
+- [x] Implement Interior Doors Page
+- [x] Implement Trim & Baseboard Page
+- [x] Implement Custom Built-Ins Page
+- [x] Implement Cabinet Installation Page
+- [x] Implement Wall & Ceiling Treatments Page
+- [x] Implement Custom Woodworking Page
 
 ### 2.4 Our Work / Portfolio (`our-work/index.html`)
-- [ ] Create `our-work/` directory
-- [ ] Build Gallery Grid Layout
-- [ ] Implement Lightbox or simple image view
+- [x] Create `our-work/` directory
+- [x] Build Gallery Grid Layout
+- [x] Implement Lightbox or simple image view
 
 ### 2.5 Locations Hub (`locations/index.html`)
-- [ ] Create `locations/` directory
-- [ ] Build Locations List/Map
+- [x] Create `locations/` directory
+- [x] Build Locations List/Map
 
 ### 2.6 Individual Location Pages (`locations/[city]/index.html`)
-- [ ] Create directory for each city
-- [ ] Implement Denver Page
-- [ ] Implement Golden Page
-- [ ] Implement Lakewood Page
-- [ ] Implement Arvada Page
-- [ ] Implement Englewood Page
-- [ ] Implement Littleton Page
-- [ ] Implement Centennial Page
-- [ ] Implement Highlands Ranch Page
+- [x] Create directory for each city
+- [x] Implement Denver Page
+- [x] Implement Golden Page
+- [x] Implement Lakewood Page
+- [x] Implement Arvada Page
+- [x] Implement Englewood Page
+- [x] Implement Littleton Page
+- [x] Implement Centennial Page
+- [x] Implement Highlands Ranch Page
 
 ### 2.7 Support Pages
-- [ ] About Page (`about/index.html`)
-- [ ] Contact Page (`contact/index.html`)
-- [ ] FAQ Page (`faq/index.html`)
-- [ ] Craftsmanship Standards (`craftsmanship-standards/index.html`)
+- [x] About Page (`about/index.html`)
+- [x] Contact Page (`contact/index.html`)
+- [x] FAQ Page (`faq/index.html`)
+- [x] Craftsmanship Standards (`craftsmanship-standards/index.html`)
 
 ---
 
 ## Phase 3: Blog Implementation
 
 ### 3.1 Blog Hub (`blog/index.html`)
-- [ ] Design Blog Listing Layout
-- [ ] Implement Categories Sidebar
+- [x] Design Blog Listing Layout
+- [x] Implement Categories Sidebar
 
 ### 3.2 Blog Posts (`blog/[post-slug]/index.html`)
-- [ ] Create Blog Post Template
-- [ ] Implement Initial Posts (Tier 1)
+- [x] Create Blog Post Template
+- [x] Implement Initial Posts (Tier 1)
+
+### 3.3 Reviews Page (`testimonials/index.html`)
+- [x] Create Reviews Page Layout
 
 ---
 

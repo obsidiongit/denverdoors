@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | Denver Interior & Doors Co.</title>
+    <meta name="description"
+        content="Answers to common questions about interior door installation, trim work, pricing, and timelines for your Denver finish carpentry project.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-4);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        details:hover {
+            border-color: var(--accent);
+        }
+
+        summary {
+            padding: var(--space-6);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            /* Remove default triangle */
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+            /* Remove default triangle in WebKit */
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: transform 0.2s;
+            line-height: 1;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        details[open] {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-content {
+            padding: 0 var(--space-6) var(--space-6) var(--space-6);
+            color: var(--foreground-muted);
+            line-height: 1.6;
+            margin-top: calc(var(--space-2) * -1);
+        }
+
+        .faq-category {
+            margin-bottom: var(--space-8);
+        }
+
+        .faq-category-title {
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-2);
+            border-bottom: 2px solid var(--border);
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" tabindex="0">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../services/index.html" class="nav-link">Services</a></li>
+                <li><a href="../our-work/index.html" class="nav-link">Our Work</a></li>
+                <li><a href="../about/index.html" class="nav-link">About</a></li>
+                <li><a href="../testimonials/index.html" class="nav-link">Reviews</a></li>
+                <li><a href="../contact/index.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:7205550123" class="nav-phone">
+                    <div class="phone-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                    </div>
+                    <span>(720) 555-0123</span>
+                </a>
+                <a href="../contact/index.html" class="btn btn-primary btn-nav-cta">Get a Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Frequently Asked Questions</h1>
+            <p class="page-subtitle">Everything you need to know about our process, pricing, and services.</p>
+        </div>
+    </header>
+
+    <!-- FAQ Content -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="faq-section">
+
+                <!-- Category 1: Services & Process -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">Services & Process</h2>
+
+                    <details>
+                        <summary>Do you install doors that I have already purchased?</summary>
+                        <div class="faq-content">
+                            <p>Yes, we offer installation-only services for homeowners who have already sourced their
+                                own doors. However, we recommend consulting with us first to ensure you purchase the
+                                correct sizes and swings for your openings.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>What is the difference between specific door core types?</summary>
+                        <div class="faq-content">
+                            <p><strong>Hollow Core:</strong> Lightweight and affordable, but offer poor soundproofing.
+                                <br>
+                                <strong>Solid Core:</strong> Heavier, feel more substantial, and offer significantly
+                                better sound reduction and durability. This is our most recommended option.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Do you paint the trim and doors?</summary>
+                        <div class="faq-content">
+                            <p>Our primary focus is finish carpentry (installation). We do not include painting in our
+                                standard bid, but we can recommend trusted local painters or coordinate with yours to
+                                ensure a seamless finish.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>How long does a typical door replacement project take?</summary>
+                        <div class="faq-content">
+                            <p>A standard home (10-15 doors) typically takes 2-3 days for full installation, including
+                                jambs and casing. We work efficiently to minimize disruption to your daily routine.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Category 2: Pricing & Quotes -->
+                <div class="faq-category">
+                    <h2 class="faq-category-title">Pricing & Quotes</h2>
+
+                    <details>
+                        <summary>Is there a charge for an estimate?</summary>
+                        <div class="faq-content">
+                            <p>No, our detailed estimates are completely free. We can often provide a ballpark range
+                                over the phone or email if you have rough measurements and photos, followed by an
+                                in-home visit for a final quote.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Do you require a deposit?</summary>
+                        <div class="faq-content">
+                            <p>Yes, for projects involving materials we purchase, we require a deposit to cover the cost
+                                of materials. Labor is typically billed upon completion or in progress draws for larger
+                                custom projects.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>What areas do you serve?</summary>
+                        <div class="faq-content">
+                            <p>We serve the entire Denver Metro area, including Golden, Lakewood, Arvada, Englewood,
+                                Littleton, Centennial, and Highlands Ranch. See our <a href="../locations/index.html"
+                                    style="color: var(--accent); text-decoration: underline;">Locations page</a> for
+                                more details.</p>
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+
+            <div class="text-center" style="margin-top: var(--space-12);">
+                <p>Still have a question?</p>
+                <a href="../contact/index.html" class="btn btn-primary" style="margin-top: var(--space-4);">Contact
+                    Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo" aria-label="Denver Interior & Doors Co.">
+                        <img src="../assets/logo.png" alt="Denver Interior & Doors Co." class="footer-logo-img">
+                    </a>
+                    <p class="footer-desc">High-End Finish Carpentry & Custom Woodworking serving the Denver Metro area.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../our-work/index.html">Our Work</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../testimonials/index.html">Reviews</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="../services/interior-doors/index.html">Interior Doors</a></li>
+                        <li><a href="../services/trim-baseboard/index.html">Trim & Baseboards</a></li>
+                        <li><a href="../services/built-ins/index.html">Custom Built-Ins</a></li>
+                        <li><a href="../services/cabinets/index.html">Cabinet Installation</a></li>
+                        <li><a href="../services/wall-ceiling/index.html">Wall & Ceiling Treatments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><a href="tel:7205550123">(720) 555-0123</a></p>
+                    <p><a href="mailto:hello@denverinteriordoors.com">hello@denverinteriordoors.com</a></p>
+                    <p>Serving the entire <a href="../locations/index.html"
+                            style="color: inherit; text-decoration: underline;">Denver Metro Area</a></p>
+                </div>
+            </div>
+            <div class="footer-locations"
+                style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid #332f2c;">
+                <h4 style="font-size: 0.9rem; color: var(--foreground-muted); margin-bottom: var(--space-4);">Areas We
+                    Serve</h4>
+                <div
+                    style="display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: 0.85rem; color: var(--foreground-subtle);">
+                    <a href="../locations/index.html">Denver</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Golden</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Lakewood</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Arvada</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Englewood</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Littleton</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Centennial</a>
+                    <span>•</span>
+                    <a href="../locations/index.html">Highlands Ranch</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Denver Interior & Doors Co. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
