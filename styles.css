@@ -568,6 +568,20 @@ button {
     color: var(--background);
 }
 
+.hero-page {
+    min-height: 50vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-page .hero-text {
+    padding-top: var(--space-16);
+}
+
+.hero-page .hero-quote-wrapper {
+    justify-content: center;
+}
+
 .hero-label {
     font-size: var(--text-h4);
     font-family: var(--font-serif);
@@ -881,6 +895,13 @@ button {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-6);
+}
+
+.service-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--radius-lg);
 }
 
 .service-card {
@@ -1287,6 +1308,69 @@ button {
     margin: 0 auto;
 }
 
+.featured-review-text {
+    color: var(--foreground-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.featured-review-author {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.featured-author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    color: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+}
+
+.featured-author-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.featured-author-name {
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.featured-author-service {
+    font-size: var(--text-body-sm);
+    color: var(--foreground-subtle);
+}
+
+.featured-review-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+.featured-review-rating .stars {
+    color: #FFD700;
+    letter-spacing: 2px;
+}
+
+.rating-text {
+    font-size: var(--text-body-sm);
+    color: var(--foreground-subtle);
+    font-weight: 500;
+}
+
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1311,6 +1395,26 @@ button {
     font-style: italic;
     margin-bottom: var(--space-6);
     color: var(--foreground-muted);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+    flex-shrink: 0;
 }
 
 .author-info {
@@ -1359,6 +1463,18 @@ button {
     margin: 0 auto var(--space-4);
 }
 
+.business-card-intro h2 {
+    font-family: var(--font-serif);
+    font-size: var(--text-h3);
+    color: var(--foreground);
+    margin-bottom: var(--space-2);
+}
+
+.tagline {
+    font-size: var(--text-body);
+    color: var(--foreground-muted);
+}
+
 .business-card-details {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1385,6 +1501,18 @@ button {
     width: 18px;
     height: 18px;
     color: var(--foreground-subtle);
+}
+
+.map-embed {
+    margin-top: var(--space-4);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.map-embed iframe {
+    border: 0;
+    display: block;
 }
 
 .business-card-cta {
@@ -1443,12 +1571,46 @@ button {
     margin-bottom: var(--space-3);
 }
 
+.footer-locations {
+    margin-top: var(--space-8);
+    padding-top: var(--space-8);
+    border-top: 1px solid #332f2c;
+}
+
+.footer-locations h4 {
+    font-size: 0.9rem;
+    color: var(--foreground-muted);
+    margin-bottom: var(--space-4);
+}
+
+.footer-locations-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: 0.85rem;
+    color: var(--foreground-subtle);
+}
+
 .footer-bottom {
     border-top: 1px solid #332f2c;
-    /* Hardcoded dark border */
     padding-top: var(--space-8);
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: var(--text-body-sm);
+}
+
+.footer-legal {
+    display: flex;
+    gap: var(--space-6);
+}
+
+.footer-legal a {
+    color: var(--foreground-subtle);
+}
+
+.footer-legal a:hover {
+    color: var(--background);
 }
 
 /* ===================================
@@ -1534,6 +1696,16 @@ button {
 
     .business-card-cta {
         flex-direction: column;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-4);
+    }
+
+    .footer-legal {
+        justify-content: center;
     }
 
     /* Gallery Mobile */
