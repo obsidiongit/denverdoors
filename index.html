@@ -7,12 +7,57 @@
     <title>Denver Interior & Doors Co. | Expert Finish Carpentry & Door Installation</title>
     <meta name="description"
         content="Professional interior door installation, trim work, and custom built-ins in Denver, CO. Upgrade your home with high-quality craftsmanship.">
+    <link rel="canonical" href="https://denverinteriordoors.com/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://denverinteriordoors.com/">
+    <meta property="og:title" content="Denver Interior & Doors Co. | Expert Finish Carpentry & Door Installation">
+    <meta property="og:description" content="Professional interior door installation, trim work, and custom built-ins in Denver, CO. Upgrade your home with high-quality craftsmanship.">
+    <meta property="og:image" content="https://denverinteriordoors.com/assets/hero-bg.jpg">
+    <meta property="og:locale" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Denver Interior & Doors Co. | Expert Finish Carpentry & Door Installation">
+    <meta name="twitter:description" content="Professional interior door installation, trim work, and custom built-ins in Denver, CO.">
+    <meta name="twitter:image" content="https://denverinteriordoors.com/assets/hero-bg.jpg">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Denver Interior & Doors Co.",
+        "description": "Professional interior door installation, trim work, and custom built-ins in Denver, CO.",
+        "url": "https://denverinteriordoors.com",
+        "telephone": "+1-720-555-0123",
+        "email": "hello@denverinteriordoors.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Black Hawk",
+            "addressRegion": "CO",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.8008,
+            "longitude": -105.4936
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "17:00"
+        },
+        "areaServed": ["Denver", "Black Hawk", "Golden", "Lakewood", "Arvada", "Littleton", "Centennial", "Highlands Ranch", "Englewood"],
+        "priceRange": "$$"
+    }
+    </script>
 </head>
 
 <body>
@@ -78,6 +123,7 @@
                 <source src="assets/videos/5973238-uhd_3840_2160_25fps.mp4" type="video/mp4">
             </video>
         </div>
+        <div class="hero-video-dots" id="heroVideoDots" aria-hidden="true"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
@@ -88,19 +134,37 @@
                 <div class="hero-quote-wrapper">
                     <button id="heroQuoteBtn" class="btn btn-primary btn-lg">Get a Free Quote</button>
                     <div id="heroQuoteFormContainer" class="hero-quote-container">
-                        <form id="heroShortForm" class="hero-form">
+                        <!-- Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io -->
+                        <form id="heroShortForm" class="hero-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                             <div class="form-grid">
-                                <input type="text" placeholder="Name" required class="form-input">
-                                <input type="tel" placeholder="Phone" required class="form-input">
+                                <div>
+                                    <label for="heroName" class="sr-only">Name</label>
+                                    <input type="text" id="heroName" name="name" placeholder="Name" required class="form-input">
+                                </div>
+                                <div>
+                                    <label for="heroPhone" class="sr-only">Phone</label>
+                                    <input type="tel" id="heroPhone" name="phone" placeholder="Phone" required class="form-input">
+                                </div>
                             </div>
-                            <input type="email" placeholder="Email" required class="form-input">
-                            <textarea placeholder="Brief project details..." rows="3" class="form-input"></textarea>
+                            <div>
+                                <label for="heroEmail" class="sr-only">Email</label>
+                                <input type="email" id="heroEmail" name="email" placeholder="Email" required class="form-input">
+                            </div>
+                            <div>
+                                <label for="heroDetails" class="sr-only">Project details</label>
+                                <textarea id="heroDetails" name="details" placeholder="Brief project details..." rows="3" class="form-input"></textarea>
+                            </div>
                             <button type="submit" class="btn btn-primary btn-full">Request Quote</button>
                         </form>
                     </div>
                 </div>
+                <div class="hero-trust-badges">
+                    <span class="trust-badge">Bonded & Insured</span>
+                    <span class="trust-badge">5-Star Rated</span>
+                    <span class="trust-badge">Locally Owned</span>
+                </div>
                 <div class="hero-badges">
-                    <div class="badge">
+                    <a href="https://g.page/denver-interior-doors" target="_blank" rel="noopener noreferrer" class="badge" aria-label="View our Google reviews - Black Hawk, CO">
                         <div class="badge-icon google">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path
@@ -117,19 +181,24 @@
                             <span class="badge-rating">5.0 <span class="stars">★★★★★</span></span>
                             <span class="badge-label">Google Reviews</span>
                         </div>
-                    </div>
-                </div>
+                    </a>
             </div>
 
         </div>
     </section>
+
+    <!-- Sticky CTA Bar -->
+    <div class="sticky-cta-bar" id="stickyCtaBar">
+        <p class="sticky-cta-text">Ready to transform your space?</p>
+        <a href="contact/index.html" class="btn btn-primary btn-sm">Get a Free Quote</a>
+    </div>
 
     <!-- Contact Bar Section -->
     <section class="contact-bar" id="book">
         <div class="contact-bar-container">
             <h2 class="contact-bar-title">READY TO <strong>GET STARTED?</strong></h2>
             <div class="contact-bar-cards">
-                <a href="tel:{{PHONE_LINK}}" class="contact-card">
+                <a href="tel:7205550123" class="contact-card">
                     <div class="contact-card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path
@@ -141,7 +210,7 @@
                         <span class="contact-card-value">(720) 555-0123</span>
                     </div>
                 </a>
-                <a href="mailto:{{EMAIL}}" class="contact-card">
+                <a href="mailto:hello@denverinteriordoors.com" class="contact-card">
                     <div class="contact-card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
@@ -174,6 +243,7 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
+                <div class="section-divider section-divider-accent"></div>
                 <span class="section-label">What We Do</span>
                 <h2 class="section-title">Our Professional Services</h2>
                 <p class="section-desc">Denver Interior & Doors Co. provides professional finish carpentry and door
@@ -298,70 +368,70 @@
             </div>
             <div class="gallery-grid">
                 <!-- Item 1 -->
-                <div class="gallery-item">
+                <a href="our-work/index.html" class="gallery-item" data-lightbox="assets/images/1383-Raleigh-St_FamilyB-1536x1024.jpg">
                     <img src="assets/images/1383-Raleigh-St_FamilyB-1536x1024.jpg"
                         alt="Family room renovation with custom trim" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <h3>Family Room Renovation</h3>
-                            <button class="btn-text">View Project</button>
+                            <span class="btn-text">View Project →</span>
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Item 2 -->
-                <div class="gallery-item">
+                <a href="our-work/index.html" class="gallery-item" data-lightbox="assets/images/20210517_135945-1152x1536.jpg">
                     <img src="assets/images/20210517_135945-1152x1536.jpg" alt="Solid core interior door upgrade"
                         loading="lazy">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <h3>Solid Core Upgrade</h3>
-                            <button class="btn-text">View Project</button>
+                            <span class="btn-text">View Project →</span>
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Item 3 -->
-                <div class="gallery-item">
+                <a href="our-work/index.html" class="gallery-item" data-lightbox="assets/images/EXT-Door-2-1152x1536.jpg">
                     <img src="assets/images/EXT-Door-2-1152x1536.jpg" alt="Exterior door replacement" loading="lazy">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <h3>Entryway Transformation</h3>
-                            <button class="btn-text">View Project</button>
+                            <span class="btn-text">View Project →</span>
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Item 4 -->
-                <div class="gallery-item">
+                <a href="our-work/index.html" class="gallery-item" data-lightbox="assets/images/Exterior-Door-1152x1536.jpg">
                     <img src="assets/images/Exterior-Door-1152x1536.jpg" alt="Custom exterior door fit and finish"
                         loading="lazy">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <h3>Custom Exterior Work</h3>
-                            <button class="btn-text">View Project</button>
+                            <span class="btn-text">View Project →</span>
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Item 5 -->
-                <div class="gallery-item">
+                <a href="our-work/index.html" class="gallery-item" data-lightbox="assets/images/20210911_094115-1152x1536.jpg">
                     <img src="assets/images/20210911_094115-1152x1536.jpg" alt="Custom interior woodwork detail"
                         loading="lazy">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <h3>Custom Detail Work</h3>
-                            <button class="btn-text">View Project</button>
+                            <span class="btn-text">View Project →</span>
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Item 6 -->
-                <div class="gallery-item">
+                <a href="our-work/index.html" class="gallery-item" data-lightbox="assets/images/20210911_093852-1536x1152.jpg">
                     <img src="assets/images/20210911_093852-1536x1152.jpg" alt="Modern living space with custom trim"
                         loading="lazy">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <h3>Modern Living Space</h3>
-                            <button class="btn-text">View Project</button>
+                            <span class="btn-text">View Project →</span>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="gallery-cta">
                 <a href="our-work/index.html" class="btn btn-secondary">View All Projects</a>
@@ -495,7 +565,7 @@
 
                     <div class="business-card-section">
                         <h3>Service Area</h3>
-                        <p>Serving the entire Denver Metro Area</p>
+                        <p>Serving Denver Metro & Black Hawk</p>
                         <div
                             style="margin-top: var(--space-4); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
                             <iframe
@@ -549,7 +619,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="services/index.html">Services</a></li>
-                        <li><a href="our-work/index.html" class="nav-link">Our Work</a></li>
+                        <li><a href="our-work/index.html">Our Work</a></li>
                         <li><a href="about/index.html">About Us</a></li>
                         <li><a href="blog/index.html">Blog</a></li>
                         <li><a href="testimonials/index.html">Reviews</a></li>
@@ -571,7 +641,7 @@
                     <p><a href="tel:7205550123">(720) 555-0123</a></p>
                     <p><a href="mailto:hello@denverinteriordoors.com">hello@denverinteriordoors.com</a></p>
                     <p>Serving the entire <a href="locations/index.html"
-                            style="color: inherit; text-decoration: underline;">Denver Metro Area</a></p>
+                            style="color: inherit; text-decoration: underline;">Denver Metro & Black Hawk</a></p>
                 </div>
             </div>
             <div class="footer-locations"
@@ -580,6 +650,8 @@
                     Serve</h4>
                 <div
                     style="display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: 0.85rem; color: var(--foreground-subtle);">
+                    <a href="locations/black-hawk/index.html">Black Hawk</a>
+                    <span>•</span>
                     <a href="locations/denver/index.html">Denver</a>
                     <span>•</span>
                     <a href="locations/golden/index.html">Golden</a>
@@ -605,7 +677,6 @@
                 <a href="#">Terms of Service</a>
             </div>
         </div>
-        </div>
     </footer>
 
     <script src="script.js"></script>
@@ -621,7 +692,7 @@
                     </svg>
                 </div>
                 <div class="chatbot-header-text">
-                    <span class="chatbot-title">Crafstman AI</span>
+                    <span class="chatbot-title">Craftsman AI</span>
                     <span class="chatbot-status">Online</span>
                 </div>
             </div>

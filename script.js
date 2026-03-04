@@ -3,13 +3,12 @@
    =================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize all components
     initNavigation();
     initHeroVideo();
+    initStickyCtaBar();
     initSmoothScroll();
     initScrollEffects();
     initForms();
-    initReviewCarousel();
     initChatbot();
 });
 
@@ -60,7 +59,24 @@ function initHeroVideo() {
     const videos = document.querySelectorAll('.hero-video');
     if (!videos.length) return;
 
-    const overlapTime = 1.5; // Seconds of overlap (matches CSS transition)
+    const overlapTime = 1.5;
+    const dotsContainer = document.getElementById('heroVideoDots');
+
+    // Create video dots
+    if (dotsContainer) {
+        videos.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'hero-video-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-index', i);
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    function setActiveDot(index) {
+        dotsContainer?.querySelectorAll('.hero-video-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
 
     // Play the first video
     const firstVideo = videos[0];
@@ -85,6 +101,7 @@ function initHeroVideo() {
                 nextVideo.currentTime = 0;
                 nextVideo.classList.add('active');
                 nextVideo.play().catch(e => console.log("Next video play prevented:", e));
+                setActiveDot(nextIndex);
 
                 // Fade out current video
                 video.classList.remove('active');
@@ -107,9 +124,32 @@ function initHeroVideo() {
                 video.classList.remove('active');
                 nextVideo.classList.add('active');
                 nextVideo.play().catch(e => console.log("Next video play prevented:", e));
+                setActiveDot(nextIndex);
             }
         });
     });
+}
+
+/* ===================================
+   STICKY CTA BAR
+   =================================== */
+function initStickyCtaBar() {
+    const bar = document.getElementById('stickyCtaBar');
+    if (!bar) return;
+
+    const threshold = 400;
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', function () {
+        const scrollY = window.pageYOffset;
+
+        if (scrollY > threshold) {
+            bar.classList.add('visible');
+        } else {
+            bar.classList.remove('visible');
+        }
+        lastScroll = scrollY;
+    }, { passive: true });
 }
 
 /* ===================================
@@ -210,7 +250,7 @@ function initScrollEffects() {
 
     // Elements to animate
     const animatedElements = document.querySelectorAll(
-        '.service-card, .visual-card, .testimonial-card, .stat, .contact-item'
+        '.service-card, .visual-card, .testimonial-card, .stat, .contact-card, .gallery-item'
     );
 
     animatedElements.forEach((el, index) => {
@@ -274,7 +314,12 @@ function initForms() {
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            handleFormSubmit(this, 'Thank you! Your message has been sent.');
+            const action = this.getAttribute('action') || '';
+            if (action.includes('formspree.io') && !action.includes('YOUR_FORM_ID')) {
+                submitToFormspree(this, 'Thank you! Your message has been sent.');
+            } else {
+                handleFormSubmit(this, 'Thank you! Your message has been sent.');
+            }
         });
     }
 
@@ -291,7 +336,7 @@ function initForms() {
             heroQuoteContainer.classList.add('expanded');
             // Focus first input
             setTimeout(() => {
-                const firstInput = heroShortForm.querySelector('input');
+                const firstInput = heroShortForm.querySelector('#heroName');
                 if (firstInput) firstInput.focus();
             }, 300);
         });
@@ -300,12 +345,42 @@ function initForms() {
     if (heroShortForm) {
         heroShortForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            handleFormSubmit(this, 'Quote request received! We will call you shortly.');
-
-            // Optional: Collapse form after delay? 
-            // For now, keep it open to show success clearly or maybe reset it.
+            const action = this.getAttribute('action') || '';
+            if (action.includes('formspree.io') && !action.includes('YOUR_FORM_ID')) {
+                submitToFormspree(this, 'Quote request received! We will call you shortly.');
+            } else {
+                handleFormSubmit(this, 'Quote request received! We will call you shortly.');
+            }
         });
     }
+}
+
+function submitToFormspree(form, successMessage) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    })
+        .then(response => {
+            if (response.ok) {
+                showNotification(successMessage, 'success');
+                form.reset();
+            } else {
+                showNotification('Something went wrong. Please call us at (720) 555-0123.', 'error');
+            }
+        })
+        .catch(() => {
+            showNotification('Something went wrong. Please call us at (720) 555-0123.', 'error');
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        });
 }
 
 function handleFormSubmit(form, successMessage) {
@@ -422,38 +497,6 @@ function showNotification(message, type = 'success') {
             setTimeout(() => notification.remove(), 300);
         }
     }, 5000);
-}
-
-/* ===================================
-   REVIEW CAROUSEL
-   =================================== */
-function initReviewCarousel() {
-    const prevBtn = document.getElementById('reviewPrev');
-    const nextBtn = document.getElementById('reviewNext');
-    const wrapper = document.querySelector('.review-card-wrapper');
-
-    if (!prevBtn || !nextBtn || !wrapper) return;
-
-    // For now, just add a subtle animation on button click
-    // Expand this for multiple reviews as needed
-
-    let currentIndex = 0;
-
-    prevBtn.addEventListener('click', () => {
-        wrapper.style.transform = 'translateX(-10px)';
-        setTimeout(() => {
-            wrapper.style.transform = 'translateX(0)';
-        }, 150);
-    });
-
-    nextBtn.addEventListener('click', () => {
-        wrapper.style.transform = 'translateX(10px)';
-        setTimeout(() => {
-            wrapper.style.transform = 'translateX(0)';
-        }, 150);
-    });
-
-    wrapper.style.transition = 'transform 0.15s ease';
 }
 
 /* ===================================
