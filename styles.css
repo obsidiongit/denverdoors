@@ -955,7 +955,7 @@ button {
 }
 
 .service-card .link-text::after {
-    content: '→';
+    content: '';
     transition: transform var(--duration-fast);
 }
 
@@ -1515,7 +1515,7 @@ button {
         font-size: 2.5rem;
     }
 
-    .hero-subtitle {
+    .hero-desc {
         font-size: 1.1rem;
     }
 
@@ -2313,5 +2313,133 @@ button {
 
     .service-content h2 {
         font-size: 2rem;
+    }
+}
+
+/* ===================================
+   LOCATION PAGES
+   =================================== */
+
+.location-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-12);
+}
+
+.location-content {
+    flex: 2;
+    min-width: 300px;
+}
+
+.location-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-4);
+}
+
+.location-content h3:not(:first-of-type) {
+    margin-top: var(--space-8);
+}
+
+.neighborhood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.location-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-8);
+}
+
+.location-gallery-item {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+}
+
+.location-gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.location-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.location-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Location Hub Cards */
+.location-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    border: 1px solid var(--border);
+    background: var(--background);
+}
+
+.location-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+.location-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.location-card .card-body {
+    padding: var(--space-6);
+}
+
+.location-card .card-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--foreground);
+    margin-bottom: var(--space-2);
+}
+
+.location-card .card-text {
+    font-size: var(--text-body);
+    color: var(--foreground-muted);
+    margin-bottom: var(--space-4);
+    line-height: 1.6;
+}
+
+.location-card .btn-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color var(--duration-fast);
+}
+
+.location-card .btn-link:hover {
+    color: var(--accent-hover);
+}
+
+@media (max-width: 900px) {
+    .location-layout {
+        flex-direction: column;
+    }
+
+    .location-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     }
 }

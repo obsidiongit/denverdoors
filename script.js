@@ -253,10 +253,10 @@ function initScrollEffects() {
         '.service-card, .visual-card, .testimonial-card, .stat, .contact-card, .gallery-item'
     );
 
-    animatedElements.forEach((el, index) => {
+    animatedElements.forEach((el) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
 
@@ -270,30 +270,6 @@ function initScrollEffects() {
     `;
     document.head.appendChild(style);
 
-    // Active nav link highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const scrollPosition = window.pageYOffset + 100;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
 }
 
 /* ===================================
@@ -371,11 +347,11 @@ function submitToFormspree(form, successMessage) {
                 showNotification(successMessage, 'success');
                 form.reset();
             } else {
-                showNotification('Something went wrong. Please call us at (720) 555-0123.', 'error');
+                showNotification('Something went wrong. Please call us at (720) 744-2553.', 'error');
             }
         })
         .catch(() => {
-            showNotification('Something went wrong. Please call us at (720) 555-0123.', 'error');
+            showNotification('Something went wrong. Please call us at (720) 744-2553.', 'error');
         })
         .finally(() => {
             submitBtn.disabled = false;
@@ -502,19 +478,6 @@ function showNotification(message, type = 'success') {
 /* ===================================
    UTILITY FUNCTIONS
    =================================== */
-
-// Debounce function for scroll events
-function debounce(func, wait = 10) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
 
 // Phone number formatting (US format)
 document.querySelectorAll('input[type="tel"]').forEach(input => {

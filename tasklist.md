@@ -113,3 +113,8 @@
 ### 4.3 Performance
 - [ ] Optimize images (WebP)
 - [ ] Minify CSS/JS (manual or simple script)
+
+### 4.4 Legal & Policy Pages
+- [ ] Create Privacy Policy page (or integrate third-party like Termly/Iubenda)
+- [ ] Create Terms of Service page
+- [ ] Update footer links to point to real pages
