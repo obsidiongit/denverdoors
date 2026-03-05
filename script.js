@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollEffects();
     initForms();
     initChatbot();
+    initExternalLinks();
+    initGlowTrack();
+    initReviewsCarousel();
 });
 
 /* ===================================
@@ -60,53 +63,28 @@ function initHeroVideo() {
     if (!videos.length) return;
 
     const overlapTime = 1.5;
-    const dotsContainer = document.getElementById('heroVideoDots');
 
-    // Create video dots
-    if (dotsContainer) {
-        videos.forEach((_, i) => {
-            const dot = document.createElement('span');
-            dot.className = 'hero-video-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('data-index', i);
-            dotsContainer.appendChild(dot);
-        });
-    }
-
-    function setActiveDot(index) {
-        dotsContainer?.querySelectorAll('.hero-video-dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-    }
-
-    // Play the first video
     const firstVideo = videos[0];
     firstVideo.play().catch(error => {
         console.log("Video autoplay prevented:", error);
     });
 
     videos.forEach((video, index) => {
-        // Use timeupdate to trigger next video before current one ends
         video.addEventListener('timeupdate', () => {
             const timeRemaining = video.duration - video.currentTime;
 
-            // Check if we're entering the overlap window and haven't triggered yet
             if (timeRemaining < overlapTime && !video.dataset.transitioning && !video.paused) {
                 video.dataset.transitioning = "true";
 
-                // Calculate next index
                 const nextIndex = (index + 1) % videos.length;
                 const nextVideo = videos[nextIndex];
 
-                // Prepare and play next video
                 nextVideo.currentTime = 0;
                 nextVideo.classList.add('active');
                 nextVideo.play().catch(e => console.log("Next video play prevented:", e));
-                setActiveDot(nextIndex);
 
-                // Fade out current video
                 video.classList.remove('active');
 
-                // Cleanup after transition completes
                 setTimeout(() => {
                     video.pause();
                     video.currentTime = 0;
@@ -115,7 +93,6 @@ function initHeroVideo() {
             }
         });
 
-        // Fallback catch-all in case timeupdate misses or logic drifts
         video.addEventListener('ended', () => {
             if (!video.dataset.transitioning) {
                 const nextIndex = (index + 1) % videos.length;
@@ -124,7 +101,6 @@ function initHeroVideo() {
                 video.classList.remove('active');
                 nextVideo.classList.add('active');
                 nextVideo.play().catch(e => console.log("Next video play prevented:", e));
-                setActiveDot(nextIndex);
             }
         });
     });
@@ -234,7 +210,6 @@ function initSmoothScroll() {
    SCROLL EFFECTS
    =================================== */
 function initScrollEffects() {
-    // Intersection Observer for fade-in animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -248,19 +223,23 @@ function initScrollEffects() {
         });
     }, observerOptions);
 
-    // Elements to animate
     const animatedElements = document.querySelectorAll(
-        '.service-card, .visual-card, .testimonial-card, .stat, .contact-card, .gallery-item'
+        '.service-card, .visual-card, .stat, .contact-card, .gallery-item, .section-header'
     );
 
+    const siblingIndex = new Map();
     animatedElements.forEach((el) => {
+        const parent = el.parentElement;
+        const count = siblingIndex.get(parent) || 0;
+        const delay = Math.min(count * 80, 400);
+        siblingIndex.set(parent, count + 1);
+
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transition = `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`;
         observer.observe(el);
     });
 
-    // Add visible class styles
     const style = document.createElement('style');
     style.textContent = `
         .visible {
@@ -269,7 +248,6 @@ function initScrollEffects() {
         }
     `;
     document.head.appendChild(style);
-
 }
 
 /* ===================================
@@ -491,6 +469,168 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
         e.target.value = value;
     });
 });
+
+/* ===================================
+   EXTERNAL LINK PROTECTION
+   =================================== */
+function initExternalLinks() {
+    let recentlyOpened = false;
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (recentlyOpened) return;
+            recentlyOpened = true;
+            window.open(this.href, '_blank', 'noopener,noreferrer');
+            setTimeout(() => { recentlyOpened = false; }, 1000);
+        });
+    });
+}
+
+/* ===================================
+   MOUSE-TRACKING GLOW
+   =================================== */
+function initGlowTrack() {
+    const selectors = '.btn, .btn-hero-cta, .btn-cta-outline, .service-card';
+    const elements = document.querySelectorAll(selectors);
+
+    elements.forEach(el => {
+        const glow = document.createElement('div');
+        glow.className = 'glow-track';
+        el.style.position = 'relative';
+        el.style.overflow = 'hidden';
+        el.appendChild(glow);
+
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            glow.style.opacity = '1';
+            glow.style.left = x + 'px';
+            glow.style.top = y + 'px';
+        });
+
+        el.addEventListener('mouseleave', () => {
+            glow.style.opacity = '0';
+        });
+    });
+}
+
+/* ===================================
+   REVIEWS CAROUSEL
+   =================================== */
+function initReviewsCarousel() {
+    const carousel = document.getElementById('reviewsCarousel');
+    const track = document.getElementById('carouselTrack');
+    if (!carousel || !track) return;
+
+    const gap = 24;
+    const speed = 50;
+    const originalCards = Array.from(track.querySelectorAll('.review-card'));
+
+    originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+    });
+
+    let totalOriginalWidth = 0;
+    let offset = 0;
+    let isDragging = false;
+    let startX = 0;
+    let dragStartOffset = 0;
+    let rafId = null;
+    let lastTime = 0;
+    let paused = false;
+
+    function measure() {
+        const cardWidth = track.querySelector('.review-card').offsetWidth;
+        totalOriginalWidth = originalCards.length * (cardWidth + gap);
+    }
+
+    function wrapOffset() {
+        if (totalOriginalWidth > 0) {
+            offset = ((offset % totalOriginalWidth) + totalOriginalWidth) % totalOriginalWidth;
+        }
+    }
+
+    function render() {
+        track.style.transform = `translateX(${-offset}px)`;
+    }
+
+    function tick(timestamp) {
+        if (!paused && !isDragging) {
+            if (lastTime) {
+                const delta = (timestamp - lastTime) / 1000;
+                offset += speed * delta;
+                wrapOffset();
+                render();
+            }
+            lastTime = timestamp;
+        } else {
+            lastTime = 0;
+        }
+        rafId = requestAnimationFrame(tick);
+    }
+
+    function getPointerX(e) {
+        return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    }
+
+    function onDragStart(e) {
+        isDragging = true;
+        startX = getPointerX(e);
+        dragStartOffset = offset;
+        carousel.classList.add('dragging');
+    }
+
+    function onDragMove(e) {
+        if (!isDragging) return;
+        const diff = startX - getPointerX(e);
+        offset = dragStartOffset + diff;
+        wrapOffset();
+        render();
+    }
+
+    function onDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        carousel.classList.remove('dragging');
+    }
+
+    carousel.addEventListener('mousedown', onDragStart);
+    window.addEventListener('mousemove', onDragMove);
+    window.addEventListener('mouseup', onDragEnd);
+
+    carousel.addEventListener('touchstart', onDragStart, { passive: true });
+    window.addEventListener('touchmove', onDragMove, { passive: true });
+    window.addEventListener('touchend', onDragEnd);
+
+    track.addEventListener('dragstart', e => e.preventDefault());
+    track.addEventListener('click', e => {
+        if (Math.abs(offset - dragStartOffset) > 5) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true);
+
+    carousel.addEventListener('mouseenter', () => { paused = true; });
+    carousel.addEventListener('mouseleave', () => { if (!isDragging) paused = false; });
+
+    document.addEventListener('visibilitychange', () => {
+        paused = document.hidden;
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { measure(); wrapOffset(); render(); }, 200);
+    });
+
+    measure();
+    render();
+    rafId = requestAnimationFrame(tick);
+}
 
 // Console branding (customize as needed)
 console.log('%c🚀 Denver Interior & Doors', 'font-size: 24px; font-weight: bold; color: #1A1714;');
