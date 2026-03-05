@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crown Moulding 101: A Room-by-Room Guide for Denver Homes | Denver Interior & Doors Co.</title>
+    <meta name="description"
+        content="Learn which rooms benefit most from crown moulding, which profiles work for your ceiling height, and what to expect from a professional installation in Denver.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <style>
+        .blog-post-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-12);
+        }
+
+        @media (max-width: 900px) {
+            .blog-post-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .blog-article {
+            background: var(--card);
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+
+        .article-header {
+            margin-bottom: var(--space-8);
+            text-align: center;
+        }
+
+        .article-meta {
+            color: var(--foreground-muted);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-4);
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+        }
+
+        .article-category {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: var(--space-4);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-8);
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--foreground-muted);
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+            color: var(--foreground);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-4);
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            color: var(--foreground);
+            margin-top: var(--space-6);
+            margin-bottom: var(--space-3);
+        }
+
+        .article-content p {
+            margin-bottom: var(--space-4);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: var(--space-6);
+            padding-left: var(--space-6);
+        }
+
+        .article-content li {
+            margin-bottom: var(--space-2);
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding: var(--space-4) var(--space-6);
+            margin: var(--space-6) 0;
+            background: var(--background-secondary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            font-style: italic;
+            color: var(--foreground);
+        }
+
+        .info-box {
+            background: var(--background-secondary);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: var(--radius-md);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            color: var(--foreground);
+            margin-bottom: var(--space-2);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+            margin: var(--space-6) 0;
+        }
+
+        @media (max-width: 640px) {
+            .room-grid { grid-template-columns: 1fr; }
+        }
+
+        .room-card {
+            background: var(--background-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+        }
+
+        .room-card-title {
+            font-weight: 700;
+            color: var(--foreground);
+            margin-bottom: var(--space-2);
+            font-size: 1rem;
+        }
+
+        .room-card-verdict {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-2);
+        }
+
+        .verdict-yes { background: #d1fae5; color: #065f46; }
+        .verdict-optional { background: #fef3c7; color: #92400e; }
+        .verdict-skip { background: #fee2e2; color: #991b1b; }
+
+        .sidebar-section {
+            background: var(--background-subtle);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-8);
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            margin-bottom: var(--space-4);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: var(--space-2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" tabindex="0">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="mobile-only nav-brand">
+                    <img src="../../assets/logo.png" alt="Denver Interior & Doors Co." class="nav-menu-logo">
+                </li>
+                <li><a href="../../index.html" class="nav-link">Home</a></li>
+                <li><a href="../../services/index.html" class="nav-link">Services</a></li>
+                <li><a href="../../our-work/index.html" class="nav-link">Our Work</a></li>
+                <li><a href="../../about/index.html" class="nav-link">About</a></li>
+                <li><a href="../index.html" class="nav-link active">Blog</a></li>
+                <li><a href="../../testimonials/index.html" class="nav-link">Reviews</a></li>
+                <li><a href="../../contact/index.html" class="nav-link">Contact</a></li>
+                <li class="mobile-only nav-cta-item">
+                    <a href="../../contact/index.html" class="btn btn-primary btn-full">Get a Free Quote</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:7207442553" class="nav-phone">
+                    <div class="phone-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                    </div>
+                    <span>(720) 744-2553</span>
+                </a>
+                <a href="../../contact/index.html" class="btn btn-primary btn-nav-cta">Get a Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section-padding" style="padding-top: var(--space-12);">
+        <div class="container">
+
+            <div style="margin-bottom: var(--space-8);">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">&larr; Back to Blog</a>
+            </div>
+
+            <div class="blog-post-layout">
+
+                <!-- Article -->
+                <article class="blog-article">
+                    <header class="article-header">
+                        <div class="article-meta">
+                            <span class="article-category">Design Guide</span>
+                            <span>&bull;</span>
+                            <span>Mar 5, 2026</span>
+                            <span>&bull;</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h1 class="article-title">Crown Moulding 101: A Room-by-Room Guide for Denver Homes</h1>
+                        <img src="../../assets/images/20210517_135945-1152x1536.jpg" alt="Elegant crown moulding detail in a Denver home"
+                            class="article-image">
+                    </header>
+
+                    <div class="article-content">
+                        <p>Crown moulding is one of the oldest architectural details in Western design — and for good reason. That simple strip of wood bridging the gap between a wall and ceiling can transform a builder-grade room into something that looks finished, intentional, and elevated. But not all crown moulding is created equal, and slapping it everywhere in your home without a plan is how you end up with a look that feels off.</p>
+
+                        <p>Here's what we've learned after years of installing crown moulding across Denver Metro homes: <strong>proportion, profile, and placement</strong> are everything.</p>
+
+                        <h2>Understanding Crown Moulding Profiles</h2>
+                        <p>Before we get into which rooms deserve crown, let's talk about the profiles themselves. The shape of the moulding should match the architectural personality of your home.</p>
+
+                        <h3>Cove (Concave) Profile</h3>
+                        <p>A simple concave curve. Clean, minimal, and surprisingly versatile. This is our most-recommended profile for modern or transitional homes in Denver's newer builds and ranch-style properties. It reads as "finished" without being fussy.</p>
+
+                        <h3>Ogee (S-Curve) Profile</h3>
+                        <p>The classic, traditional crown profile. An S-shaped curve that creates depth and shadow lines. If you have a Victorian, Craftsman bungalow, or classic Tudor in Capitol Hill or Washington Park, ogee profiles with a wider reveal feel right at home.</p>
+
+                        <h3>Flat / Craftsman Profile</h3>
+                        <p>A series of flat steps with minimal curves. Inspired by the Arts and Crafts movement. Works beautifully in Craftsman bungalows or mid-century homes where ornate curves would feel out of place.</p>
+
+                        <h3>Built-Up Crown</h3>
+                        <p>This is where we stack multiple moulding pieces to create a wide, dramatic cornice. Think grand dining rooms, formal living rooms, or a primary bedroom that needs a statement ceiling. The result is genuinely impressive — but it requires an experienced hand to get the layering and proportions right.</p>
+
+                        <div class="info-box">
+                            <div class="info-box-title">The Ceiling Height Rule of Thumb</div>
+                            <p style="margin: 0; font-size: 0.95rem;">For ceilings under 9 feet, stick to a 3"–4" crown. For 9–10 foot ceilings, 4"–6" feels proportionate. Ceilings above 10 feet can handle 6"+ or built-up crown. Going too large on a low ceiling makes the room feel compressed — a mistake we see in DIY installs all the time.</p>
+                        </div>
+
+                        <h2>Room-by-Room: Where Crown Moulding Earns Its Keep</h2>
+
+                        <div class="room-grid">
+                            <div class="room-card">
+                                <span class="room-card-verdict verdict-yes">High Priority</span>
+                                <div class="room-card-title">Living Room</div>
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--foreground-muted);">The most visible room in your home. Crown moulding here sets the tone for the entire house. Go for a medium or built-up profile.</p>
+                            </div>
+                            <div class="room-card">
+                                <span class="room-card-verdict verdict-yes">High Priority</span>
+                                <div class="room-card-title">Dining Room</div>
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--foreground-muted);">Paired with a statement light fixture, crown moulding in the dining room creates a formal, intentional atmosphere that adds real perceived value.</p>
+                            </div>
+                            <div class="room-card">
+                                <span class="room-card-verdict verdict-yes">High Priority</span>
+                                <div class="room-card-title">Primary Bedroom</div>
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--foreground-muted);">Buyers notice this immediately. A well-appointed primary suite with crown moulding feels like a retreat. Strong ROI for resale.</p>
+                            </div>
+                            <div class="room-card">
+                                <span class="room-card-verdict verdict-yes">High Priority</span>
+                                <div class="room-card-title">Home Office</div>
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--foreground-muted);">With remote work the norm, a polished home office with moulding conveys professionalism — both for video calls and for buyers.</p>
+                            </div>
+                            <div class="room-card">
+                                <span class="room-card-verdict verdict-optional">Optional</span>
+                                <div class="room-card-title">Kitchen</div>
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--foreground-muted);">Crown on top of upper cabinets (cabinet-to-ceiling) is excellent. Full perimeter crown in an open kitchen can feel awkward if not carried through consistently.</p>
+                            </div>
+                            <div class="room-card">
+                                <span class="room-card-verdict verdict-optional">Optional</span>
+                                <div class="room-card-title">Secondary Bedrooms</div>
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--foreground-muted);">Adds polish, but budget-wise this is the last place to invest if you're working in phases. Match what you do in the primary.</p>
+                            </div>
+                            <div class="room-card">
+                                <span class="room-card-verdict verdict-skip">Skip It</span>
+                                <div class="room-card-title">Bathrooms (Small)</div>
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--foreground-muted);">In a small bathroom, crown moulding at a low ceiling compresses the space visually. Simple picture rail or tile accents work better.</p>
+                            </div>
+                            <div class="room-card">
+                                <span class="room-card-verdict verdict-skip">Skip It</span>
+                                <div class="room-card-title">Garage / Utility</div>
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--foreground-muted);">These areas won't benefit from the investment. Save your budget for the rooms people actually live in.</p>
+                            </div>
+                        </div>
+
+                        <h2>What to Expect from Professional Installation</h2>
+                        <p>Crown moulding installation looks deceptively simple but is one of the most technically demanding trim jobs in finish carpentry. Every inside corner, outside corner, and ceiling/wall transition requires precise compound angle cuts. Walls are rarely perfectly plumb, and ceilings are rarely perfectly flat — especially in older Denver homes.</p>
+
+                        <p>Here's what a professional installation includes:</p>
+                        <ul>
+                            <li><strong>Wall and ceiling prep:</strong> Checking for level and plumb, scribing the moulding if needed.</li>
+                            <li><strong>Stud finding and proper fastening:</strong> Nailing into studs and top plates, not just drywall, ensures the moulding stays put through Colorado's seasonal humidity swings.</li>
+                            <li><strong>Coping inside corners</strong> (not mitering): Coped joints look better and don't open up when wood moves seasonally.</li>
+                            <li><strong>Filling, sanding, and priming:</strong> Before paint, every nail hole and joint is filled, sanded smooth, and primed.</li>
+                        </ul>
+
+                        <blockquote>
+                            "A mitered inside corner will gap within a year as the wood moves. A coped joint stays tight. It takes longer, but the difference is obvious in ten years."
+                        </blockquote>
+
+                        <h2>Crown Moulding in Denver's Climate</h2>
+                        <p>Denver's semi-arid climate — with low humidity in winter and monsoon moisture in summer — puts real stress on wood trim. We recommend <strong>finger-jointed primed MDF</strong> for painted applications. It's dimensionally stable through humidity swings, takes paint beautifully, and is more affordable than solid wood. For stained or natural finish applications, we source kiln-dried solid wood and account for seasonal movement in our installation.</p>
+
+                        <h2>Getting Started</h2>
+                        <p>If you're ready to add crown moulding to your Denver home, the best first step is a walkthrough with our team. We'll assess your ceiling heights, architectural style, and existing trim package to recommend the right profile and approach — room by room.</p>
+                    </div>
+
+                    <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--border);">
+                        <h3>Ready to elevate your ceilings?</h3>
+                        <p>Our finish carpenters specialize in crown moulding installation across Denver Metro. <a href="../../contact/index.html" style="color: var(--accent);">Schedule a free estimate</a> and we'll walk your home and give you an honest recommendation.</p>
+                    </div>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-section" style="background: var(--foreground); color: white; border-radius: var(--radius-xl); padding: var(--space-8); margin-bottom: var(--space-8);">
+                        <h3 style="color: white; margin-bottom: var(--space-2);">Free Moulding Consult</h3>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: var(--space-6);">Not sure which profile is right for your home? Our team will walk you through it — at no cost.</p>
+                        <a href="../../contact/index.html" class="btn btn-primary btn-full">Book a Walkthrough</a>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Related Articles</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: var(--space-3); padding-bottom: var(--space-3); border-bottom: 1px solid var(--border-light);">
+                                <a href="../trim-styles-modern-vs-traditional/index.html" style="color: var(--foreground); text-decoration: none; font-weight: 500; font-size: 0.95rem;">Trim Styles: Modern vs. Traditional</a>
+                            </li>
+                            <li style="margin-bottom: var(--space-3); padding-bottom: var(--space-3); border-bottom: 1px solid var(--border-light);">
+                                <a href="../choosing-baseboard-height/index.html" style="color: var(--foreground); text-decoration: none; font-weight: 500; font-size: 0.95rem;">Choosing the Right Baseboard Height</a>
+                            </li>
+                            <li style="margin-bottom: var(--space-3);">
+                                <a href="../wood-wall-paneling-accent-walls/index.html" style="color: var(--foreground); text-decoration: none; font-weight: 500; font-size: 0.95rem;">Wood Wall Paneling & Accent Walls</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Our Wall & Ceiling Services</h3>
+                        <p style="margin-bottom: var(--space-4); font-size: 0.9rem; color: var(--foreground-muted);">
+                            From crown moulding to coffered ceilings, we handle every finish carpentry detail.
+                        </p>
+                        <a href="../../services/wall-ceiling/index.html" class="btn btn-outline btn-full">View Service</a>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky CTA Bar -->
+    <div class="sticky-cta-bar" id="stickyCtaBar">
+        <p class="sticky-cta-text">Ready to transform your space?</p>
+        <a href="../../contact/index.html" class="btn btn-primary btn-sm">Get a Free Quote</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-accent-bar"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../../index.html" class="footer-logo" aria-label="Denver Interior & Doors Co.">
+                        <img src="../../assets/logo.png" alt="Denver Interior & Doors Co." class="footer-logo-img">
+                    </a>
+                    <p class="footer-desc">High-End Finish Carpentry & Custom Woodworking serving the Denver Metro area.</p>
+                    <div class="footer-social">
+                        <a href="https://g.page/denver-interior-doors" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Google Business Profile"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+                        <a href="https://www.facebook.com/denverinteriordoors" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="https://www.instagram.com/denverinteriordoors" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../services/index.html">Services</a></li>
+                        <li><a href="../../our-work/index.html">Our Work</a></li>
+                        <li><a href="../../about/index.html">About Us</a></li>
+                        <li><a href="../index.html">Blog</a></li>
+                        <li><a href="../../testimonials/index.html">Reviews</a></li>
+                        <li><a href="../../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="../../services/interior-doors/index.html">Interior Doors</a></li>
+                        <li><a href="../../services/trim-baseboard/index.html">Trim & Baseboards</a></li>
+                        <li><a href="../../services/built-ins/index.html">Custom Built-Ins</a></li>
+                        <li><a href="../../services/cabinet-installation/index.html">Cabinet Installation</a></li>
+                        <li><a href="../../services/wall-ceiling/index.html">Wall & Ceiling Treatments</a></li>
+                        <li><a href="../../services/custom-woodworking/index.html">Custom Woodworking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-items">
+                        <a href="tel:7207442553" class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>(720) 744-2553</span></a>
+                        <a href="mailto:hello@denverinteriordoors.com" class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>hello@denverinteriordoors.com</span></a>
+                        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span>Mon - Fri: 8am - 5pm</span></div>
+                        <a href="../../locations/index.html" class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Denver Metro & Black Hawk</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-locations">
+                <h4>Areas We Serve</h4>
+                <div class="footer-locations-list">
+                    <a href="../../locations/black-hawk/index.html">Black Hawk</a>
+                    <span>&bull;</span>
+                    <a href="../../locations/denver/index.html">Denver</a>
+                    <span>&bull;</span>
+                    <a href="../../locations/golden/index.html">Golden</a>
+                    <span>&bull;</span>
+                    <a href="../../locations/lakewood/index.html">Lakewood</a>
+                    <span>&bull;</span>
+                    <a href="../../locations/arvada/index.html">Arvada</a>
+                    <span>&bull;</span>
+                    <a href="../../locations/englewood/index.html">Englewood</a>
+                    <span>&bull;</span>
+                    <a href="../../locations/littleton/index.html">Littleton</a>
+                    <span>&bull;</span>
+                    <a href="../../locations/centennial/index.html">Centennial</a>
+                    <span>&bull;</span>
+                    <a href="../../locations/highlands-ranch/index.html">Highlands Ranch</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container footer-bottom-inner">
+                    <p>&copy; 2026 Denver Interior & Doors Co. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+
+    <!-- AI Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1v-5a7 7 0 0 1 7-7h1V3.73C9 3.39 8.6 2.74 8.6 2a2 2 0 0 1 2-2z"></path></svg></div>
+                <div class="chatbot-header-text"><span class="chatbot-title">Craftsman AI</span><span class="chatbot-status">Online</span></div>
+            </div>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close Chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message bot"><div class="message-content"><p>Hi there! I'm the Denver Interior & Doors AI assistant. How can I help you with your project today?</p></div><span class="message-time">Just now</span></div>
+            <div class="chat-message bot"><div class="message-content"><p>I can help you with:</p><ul><li>Scheduling a free estimate</li><li>Door styles & options</li><li>Trim & moulding questions</li></ul></div><span class="message-time">Just now</span></div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Type a message..." class="chatbot-input">
+            <button class="chatbot-send" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+        </div>
+    </div>
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open Chat">
+        <div class="chatbot-toggle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-open"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-close"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </div>
+        <span class="chatbot-toggle-label">Chat with us</span>
+    </button>
+</body>
+
+</html>

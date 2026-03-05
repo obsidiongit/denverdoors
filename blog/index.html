@@ -85,11 +85,23 @@
             margin-bottom: var(--space-4);
         }
 
-        /* Blog Grid Refinement */
+        /* Blog Grid — 3 columns */
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: var(--space-8) var(--space-6);
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+        }
+
+        @media (max-width: 900px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .blog-card {
@@ -98,13 +110,20 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             transition: all var(--duration-normal) var(--ease-default);
-            height: 100%;
             display: flex;
             flex-direction: column;
         }
 
+        .blog-card > a {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+        }
+
         .blog-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
             border-color: var(--accent);
         }
@@ -112,7 +131,7 @@
         .blog-card-image-wrapper {
             position: relative;
             overflow: hidden;
-            aspect-ratio: 16 / 10;
+            aspect-ratio: 4 / 3;
         }
 
         .blog-card-img {
@@ -123,21 +142,21 @@
         }
 
         .blog-card:hover .blog-card-img {
-            transform: scale(1.08);
+            transform: scale(1.06);
         }
 
         .blog-card-content {
-            padding: var(--space-6);
+            padding: var(--space-4) var(--space-6) var(--space-6);
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .blog-card-category {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.07em;
             color: var(--accent);
             margin-bottom: var(--space-2);
         }
@@ -145,15 +164,15 @@
         .blog-card-title {
             font-family: var(--font-sans);
             font-weight: 700;
-            font-size: 1.4rem;
-            letter-spacing: -0.02em;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
             color: var(--foreground);
-            margin-bottom: var(--space-3);
-            line-height: 1.3;
+            margin-bottom: var(--space-2);
+            line-height: 1.35;
         }
 
         .blog-card-excerpt {
-            font-size: 0.95rem;
+            font-size: 0.875rem;
             color: var(--foreground-muted);
             margin-bottom: var(--space-4);
             display: -webkit-box;
@@ -161,16 +180,17 @@
             line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            line-height: 1.6;
+            flex-grow: 1;
         }
 
         .blog-card-footer {
-            margin-top: auto;
-            padding-top: var(--space-4);
+            padding-top: var(--space-3);
             border-top: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--foreground-subtle);
         }
 
@@ -385,6 +405,63 @@
                                 </div>
                             </a>
                         </article>
+
+                        <!-- Post 4 -->
+                        <article class="blog-card">
+                            <a href="crown-moulding-101/index.html">
+                                <div class="blog-card-image-wrapper">
+                                    <img src="../assets/images/20210517_135945-1152x1536.jpg"
+                                        alt="Crown moulding detail in a finished room" class="blog-card-img" loading="lazy">
+                                </div>
+                                <div class="blog-card-content">
+                                    <span class="blog-card-category">Design Guide</span>
+                                    <h3 class="blog-card-title">Crown Moulding 101: A Room-by-Room Guide</h3>
+                                    <p class="blog-card-excerpt">Which rooms actually benefit from crown moulding, which profiles suit your ceiling height, and what a professional installation involves in Denver homes.</p>
+                                    <div class="blog-card-footer">
+                                        <span>Mar 5, 2026</span>
+                                        <span class="read-more">Read Full Article &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <!-- Post 5 -->
+                        <article class="blog-card">
+                            <a href="finish-carpentry-roi-home-value/index.html">
+                                <div class="blog-card-image-wrapper">
+                                    <img src="../assets/images/raleigh-st-living-room.jpg"
+                                        alt="Beautifully finished living room with custom trim" class="blog-card-img" loading="lazy">
+                                </div>
+                                <div class="blog-card-content">
+                                    <span class="blog-card-category">Home Value</span>
+                                    <h3 class="blog-card-title">The Real ROI of Finish Carpentry</h3>
+                                    <p class="blog-card-excerpt">Which upgrades actually recoup their cost when you sell your Denver home? A clear-eyed ROI breakdown of doors, trim, built-ins, and moulding.</p>
+                                    <div class="blog-card-footer">
+                                        <span>Mar 5, 2026</span>
+                                        <span class="read-more">Read Full Article &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <!-- Post 6 -->
+                        <article class="blog-card">
+                            <a href="interior-door-hardware-guide/index.html">
+                                <div class="blog-card-image-wrapper">
+                                    <img src="../assets/images/grant-st-door-hardware.jpg"
+                                        alt="Matte black lever door hardware" class="blog-card-img" loading="lazy">
+                                </div>
+                                <div class="blog-card-content">
+                                    <span class="blog-card-category">Product Guide</span>
+                                    <h3 class="blog-card-title">Choosing Interior Door Hardware: Knobs, Levers & Hinges</h3>
+                                    <p class="blog-card-excerpt">Everything you need to know about selecting the right door hardware finish, style, and latch type to create a cohesive look throughout your home.</p>
+                                    <div class="blog-card-footer">
+                                        <span>Mar 5, 2026</span>
+                                        <span class="read-more">Read Full Article &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
                     </div>
 
                 </main>
@@ -404,13 +481,16 @@
                         </div>
                     </div>
 
-                    <div class="sidebar-section"
-                        style="background: var(--background-secondary); border: 1px solid var(--border);">
-                        <h3 class="sidebar-title">Expert Consultation</h3>
-                        <p style="margin-bottom: var(--space-4); font-size: 0.9rem; color: var(--foreground-muted);">
-                            Need specific advice for your home? Our master carpenters are ready to help.
-                        </p>
-                        <a href="../contact/index.html" class="btn btn-primary btn-full">Book Free Estimate</a>
+                    <div style="background: var(--foreground); border-radius: var(--radius-xl); overflow: hidden;">
+                        <img src="../assets/images/grant-st-bedroom-doors.jpg" alt="Custom interior doors" style="width: 100%; height: 140px; object-fit: cover; display: block; opacity: 0.7;">
+                        <div style="padding: var(--space-6);">
+                            <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: var(--space-2);">Free Consultation</p>
+                            <h3 style="color: white; font-size: 1.25rem; line-height: 1.2; margin-bottom: var(--space-3);">Talk to a Master Carpenter</h3>
+                            <p style="font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: var(--space-6);">
+                                Not sure where to start? We'll walk your home, assess what's worth upgrading, and give you an honest quote — no pressure.
+                            </p>
+                            <a href="../contact/index.html" class="btn btn-full" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(4px);">Book Free Estimate</a>
+                        </div>
                     </div>
                 </aside>
 
