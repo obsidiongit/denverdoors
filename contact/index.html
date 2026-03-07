@@ -73,7 +73,7 @@
                 <li><a href="../testimonials/index.html" class="nav-link">Reviews</a></li>
                 <li><a href="index.html" class="nav-link active">Contact</a></li>
                 <li class="mobile-only nav-cta-item">
-                    <a href="index.html" class="btn btn-primary btn-full">Get a Free Quote</a>
+                    <button class="btn btn-primary btn-full open-booking-modal">Get a Free Quote</button>
                 </li>
             </ul>
             <div class="nav-actions">
@@ -86,7 +86,7 @@
                     </div>
                     <span>(720) 744-2553</span>
                 </a>
-                <a href="index.html" class="btn btn-primary btn-nav-cta">Get a Free Quote</a>
+                <button class="btn btn-primary btn-nav-cta open-booking-modal">Get a Free Quote</button>
             </div>
         </div>
     </nav>
@@ -129,7 +129,7 @@
     <!-- Sticky CTA Bar -->
     <div class="sticky-cta-bar" id="stickyCtaBar">
         <p class="sticky-cta-text">Ready to transform your space?</p>
-        <a href="tel:7207442553" class="btn btn-primary btn-sm">Call (720) 744-2553</a>
+        <button class="btn btn-primary btn-sm open-booking-modal">Get a Free Quote</button>
     </div>
 
     <!-- Contact Content -->
@@ -212,52 +212,12 @@
 
                 <!-- Right Column: Form -->
                 <div class="contact-form-wrapper">
-                    <h3 style="margin-bottom: var(--space-6);">Send Us a Message</h3>
-                    <!-- Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io -->
-                    <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID"
-                        method="POST">
-                        <div class="form-group" style="margin-bottom: var(--space-4);">
-                            <label for="name"
-                                style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Name</label>
-                            <input type="text" id="name" name="name" required class="form-input"
-                                style="width: 100%; border: 1px solid var(--border); color: var(--foreground);">
-                        </div>
-                        <div class="form-group" style="margin-bottom: var(--space-4);">
-                            <label for="email"
-                                style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Email</label>
-                            <input type="email" id="email" name="email" required class="form-input"
-                                style="width: 100%; border: 1px solid var(--border); color: var(--foreground);">
-                        </div>
-                        <div class="form-group" style="margin-bottom: var(--space-4);">
-                            <label for="phone"
-                                style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Phone</label>
-                            <input type="tel" id="phone" name="phone" required class="form-input"
-                                style="width: 100%; border: 1px solid var(--border); color: var(--foreground);">
-                        </div>
-                        <div class="form-group" style="margin-bottom: var(--space-4);">
-                            <label for="service"
-                                style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Service
-                                Needed</label>
-                            <select id="service" name="service" class="form-input"
-                                style="width: 100%; border: 1px solid var(--border); color: var(--foreground);">
-                                <option value="">Select a service...</option>
-                                <option value="Interior Doors">Interior Door Installation</option>
-                                <option value="Trim & Baseboards">Trim & Baseboards</option>
-                                <option value="Custom Built-Ins">Custom Built-Ins</option>
-                                <option value="Cabinets">Cabinet Installation</option>
-                                <option value="Wall Treatments">Wall & Ceiling Treatments</option>
-                                <option value="Other">Other Custom Woodworking</option>
-                            </select>
-                        </div>
-                        <div class="form-group" style="margin-bottom: var(--space-6);">
-                            <label for="message"
-                                style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Project
-                                Details</label>
-                            <textarea id="message" name="message" rows="5" required class="form-input"
-                                style="width: 100%; border: 1px solid var(--border); color: var(--foreground);"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                    </form>
+                    <h3 style="margin-bottom: var(--space-6);">Book an Appointment</h3>
+                    <div
+                        style="width: 100%; height: 600px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border);">
+                        <iframe src="https://denverinteriordoors.dripjobs.com/appointmentrequests" width="100%"
+                            height="100%" frameborder="0"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -464,6 +424,16 @@
         </div>
         <span class="chatbot-toggle-label">Chat with us</span>
     </button>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="booking-modal">
+        <div class="booking-modal-content">
+            <button class="booking-modal-close" aria-label="Close booking modal">&times;</button>
+            <div class="booking-iframe-container">
+                <iframe src="https://denverinteriordoors.dripjobs.com/appointmentrequests" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
 
 </body>
 
