@@ -19,6 +19,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: var(--space-12);
+            align-items: stretch;
         }
 
         @media (max-width: 900px) {
@@ -50,6 +51,23 @@
             padding: var(--space-8);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form-wrapper .book-iframe-container {
+            flex: 1;
+            min-height: 700px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .contact-form-wrapper .book-iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
         }
     </style>
 </head>
@@ -213,10 +231,9 @@
                 <!-- Right Column: Form -->
                 <div class="contact-form-wrapper">
                     <h3 style="margin-bottom: var(--space-6);">Book an Appointment</h3>
-                    <div
-                        style="width: 100%; height: 600px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border);">
-                        <iframe src="https://denverinteriordoors.dripjobs.com/appointmentrequests" width="100%"
-                            height="100%" frameborder="0"></iframe>
+                    <div class="book-iframe-container">
+                        <iframe src="https://denverinteriordoors.dripjobs.com/appointmentrequests"
+                            frameborder="0"></iframe>
                     </div>
                 </div>
             </div>
