@@ -36,54 +36,57 @@ function initHeroAiProposal() {
             input.focus();
             return;
         }
-        try {
-            sessionStorage.setItem('heroProposalBrief', text);
-        } catch (err) {
-            /* ignore quota / private mode */
+        if (typeof window.__openEstimateWidget === 'function') {
+            window.__openEstimateWidget(text);
+            input.value = '';
         }
-        window.location.href = 'book/index.html';
     });
 }
 
 /* ===================================
-   CHATBOT WIDGET
+   ESTIMATE CHAT WIDGET
    =================================== */
 function initChatbot() {
-    var WIDGET_SRC = 'https://estimate.denverinteriordoors.com/widget/dd?key=dd_wk_693ab533aea8893091e313544214852dcf7393af8f1e4567';
+    var WIDGET_BASE = 'https://estimate.denverinteriordoors.com/widget/dd?key=dd_wk_693ab533aea8893091e313544214852dcf7393af8f1e4567';
     var WIDGET_ORIGIN = 'https://estimate.denverinteriordoors.com';
 
-    var toggleBtn = document.getElementById('chatbotToggle');
     var widget    = document.getElementById('chatbotWidget');
     var iframe    = document.getElementById('chatbotIframe');
+    var closeBtn  = document.getElementById('widgetCloseBtn');
 
-    if (!toggleBtn || !widget) return;
+    if (!widget) return;
 
     var loaded = false;
 
-    function openChat() {
-        widget.classList.add('active');
-        toggleBtn.classList.add('active');
-        // Lazy-load the iframe on first open
+    function openChat(brief) {
+        var src = WIDGET_BASE;
+        if (brief) src += '&brief=' + encodeURIComponent(brief);
         if (!loaded && iframe) {
-            iframe.src = WIDGET_SRC;
+            iframe.src = src;
             loaded = true;
         }
+        widget.classList.add('active');
+        if (closeBtn) closeBtn.removeAttribute('hidden');
     }
 
     function closeChat() {
         widget.classList.remove('active');
-        toggleBtn.classList.remove('active');
+        if (closeBtn) closeBtn.setAttribute('hidden', '');
     }
 
-    toggleBtn.addEventListener('click', function () {
-        widget.classList.contains('active') ? closeChat() : openChat();
-    });
+    // Close button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeChat);
+    }
 
-    // Listen for close signal from the widget iframe
+    // Listen for close signal from iframe
     window.addEventListener('message', function (e) {
         if (e.origin !== WIDGET_ORIGIN) return;
         if (e.data === 'dd:close') closeChat();
     });
+
+    // Expose so hero form can call it
+    window.__openEstimateWidget = openChat;
 }
 
 /* ===================================

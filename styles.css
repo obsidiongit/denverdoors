@@ -643,10 +643,181 @@ button {
 .hero-desc {
     font-size: var(--text-body-lg);
     opacity: 0.9;
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-6);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Hero — glassmorphism AI proposal bar */
+.hero-ai-proposal {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto var(--space-8);
+    text-align: left;
+}
+
+.hero-ai-proposal-tagline {
+    font-size: var(--text-body);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: var(--space-4);
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+}
+
+.hero-ai-proposal-form {
+    margin: 0;
+}
+
+.hero-ai-proposal-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-height: 58px;
+    padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
+    border-radius: 999px;
+    background: rgba(20, 18, 16, 0.78);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.32),
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.hero-ai-proposal-field {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.hero-ai-proposal-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: var(--text-small);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.hero-ai-proposal-icon svg {
+    color: #C49A4A;
+    flex-shrink: 0;
+}
+
+.hero-ai-proposal-divider {
+    flex-shrink: 0;
+    width: 1px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 var(--space-3);
+}
+
+.hero-ai-proposal-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.92);
+    padding: var(--space-3) var(--space-2);
+    outline: none;
+}
+
+.hero-ai-proposal-input::placeholder {
+    color: rgba(255, 255, 255, 0.38);
+    font-weight: 400;
+}
+
+.hero-ai-proposal-submit {
+    flex-shrink: 0;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background: #C49A4A;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 2px 10px rgba(196, 154, 74, 0.35);
+}
+
+.hero-ai-proposal-submit:hover {
+    background: #b08840;
+    transform: scale(1.06);
+}
+
+.hero-ai-proposal-submit:active {
+    transform: scale(0.97);
+}
+
+.hero-ai-proposal-arrow {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.hero-ai-proposal-bar.hero-ai-proposal-bar--pulse {
+    animation: heroAiPulse 0.5s var(--ease-default);
+}
+
+@keyframes heroAiPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.01);
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-ai-proposal {
+        max-width: 100%;
+    }
+
+    .hero-ai-proposal-bar {
+        flex-direction: column;
+        align-items: stretch;
+        min-height: 0;
+        padding: var(--space-3);
+        gap: var(--space-3);
+    }
+
+    .hero-ai-proposal-field {
+        width: 100%;
+    }
+
+    .hero-ai-proposal-icon {
+        padding-left: 0;
+        padding-right: var(--space-2);
+    }
+
+    .hero-ai-proposal-input {
+        padding: var(--space-3) var(--space-2);
+        font-size: var(--text-body);
+    }
+
+    .hero-ai-proposal-submit {
+        align-self: flex-end;
+        width: 44px;
+        height: 44px;
+    }
 }
 
 .hero-trust-badges {
@@ -3377,4 +3548,94 @@ button {
 .booking-modal-close:hover {
     background: var(--background-secondary);
     color: var(--destructive);
+}
+/* ===================================
+   ESTIMATE CHAT WIDGET PANEL
+   =================================== */
+.chatbot-widget {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(16px);
+    width: calc(100% - 32px);
+    max-width: 440px;
+    height: 620px;
+    max-height: calc(100svh - 48px);
+    border-radius: 20px;
+    overflow: hidden;
+    background: #1A1714;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.5),
+        0 4px 16px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 9000;
+}
+
+.chatbot-widget.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Close button — top-right corner over the iframe */
+.widget-close-btn {
+    position: fixed;
+    z-index: 9001;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(30, 27, 24, 0.88);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    /* Position is calculated by JS based on widget position */
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(calc(-50% + 188px)) translateY(-608px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.widget-close-btn:not([hidden]) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.widget-close-btn:hover {
+    background: rgba(50, 46, 42, 0.95);
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .chatbot-widget {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(20px);
+        width: 100%;
+        max-width: 100%;
+        border-radius: 20px 20px 0 0;
+        height: 85svh;
+    }
+
+    .chatbot-widget.active {
+        transform: translateY(0);
+    }
+
+    .widget-close-btn {
+        bottom: calc(85svh - 8px);
+        left: auto;
+        right: 16px;
+        transform: none;
+    }
 }

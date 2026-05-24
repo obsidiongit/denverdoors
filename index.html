@@ -133,26 +133,27 @@
                 <p class="hero-desc">Specializing in custom interior doors, trim, built-ins, & finish carpentry for
                     residential and commercial properties.</p>
                 <div class="hero-ai-proposal" aria-label="AI proposal assistant">
-                    <p class="hero-ai-proposal-tagline">Tell us about your project—our AI drafts your custom proposal</p>
-                    <form class="hero-ai-proposal-form" id="heroAiProposalForm" action="book/index.html" method="get">
+                    <form class="hero-ai-proposal-form" id="heroAiProposalForm" autocomplete="off">
                         <div class="hero-ai-proposal-bar">
                             <div class="hero-ai-proposal-field">
                                 <span class="hero-ai-proposal-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-                                        <path
-                                            d="M12 1.5l1.35 7.65L21 12l-7.65 2.85L12 22.5l-1.35-7.65L3 12l7.65-2.85L12 1.5z" />
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                        <path d="M12 1.5l1.35 7.65L21 12l-7.65 2.85L12 22.5l-1.35-7.65L3 12l7.65-2.85L12 1.5z" />
                                     </svg>
+                                    AI-Powered Estimate
                                 </span>
+                                <span class="hero-ai-proposal-divider" aria-hidden="true"></span>
                                 <input type="text" class="hero-ai-proposal-input" id="heroAiProposalInput"
-                                    name="project" placeholder="e.g. New interior doors & trim in Wash Park…"
-                                    autocomplete="off" aria-label="Describe your project">
+                                    name="project" placeholder="Tell us about your project..."
+                                    autocomplete="off" aria-label="Describe your project for a free estimate">
                             </div>
                             <button type="submit" class="hero-ai-proposal-submit"
-                                aria-label="Continue with your project description">
+                                aria-label="Start estimate">
                                 <svg class="hero-ai-proposal-arrow" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2.25" stroke-linecap="round"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                                     stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17L17 7M7 7h10v10" />
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
                             </button>
                         </div>
@@ -941,18 +942,12 @@
         ></iframe>
     </div>
 
-    <!-- Chatbot Toggle Button -->
-    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open Chat">
-        <div class="chatbot-toggle-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-open">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-close">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
-        <span class="chatbot-toggle-label">Chat with us</span>
+    <!-- Estimate Widget Close Button (shown when panel is open) -->
+    <button class="widget-close-btn" id="widgetCloseBtn" aria-label="Close estimate chat" hidden>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
     </button>
 </body>
 
