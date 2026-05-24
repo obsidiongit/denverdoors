@@ -132,6 +132,32 @@
                 <h1 class="hero-title">Interior Door Installation & Finish Carpentry in Denver, CO</h1>
                 <p class="hero-desc">Specializing in custom interior doors, trim, built-ins, & finish carpentry for
                     residential and commercial properties.</p>
+                <div class="hero-ai-proposal" aria-label="AI proposal assistant">
+                    <p class="hero-ai-proposal-tagline">Tell us about your project—our AI drafts your custom proposal</p>
+                    <form class="hero-ai-proposal-form" id="heroAiProposalForm" action="book/index.html" method="get">
+                        <div class="hero-ai-proposal-bar">
+                            <div class="hero-ai-proposal-field">
+                                <span class="hero-ai-proposal-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                                        <path
+                                            d="M12 1.5l1.35 7.65L21 12l-7.65 2.85L12 22.5l-1.35-7.65L3 12l7.65-2.85L12 1.5z" />
+                                    </svg>
+                                </span>
+                                <input type="text" class="hero-ai-proposal-input" id="heroAiProposalInput"
+                                    name="project" placeholder="e.g. New interior doors & trim in Wash Park…"
+                                    autocomplete="off" aria-label="Describe your project">
+                            </div>
+                            <button type="submit" class="hero-ai-proposal-submit"
+                                aria-label="Continue with your project description">
+                                <svg class="hero-ai-proposal-arrow" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.25" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M7 17L17 7M7 7h10v10" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
                 <div class="hero-quote-wrapper">
                     <a href="book/index.html" id="heroQuoteBtn" class="btn btn-hero-cta">Get a Free Quote <svg
                             viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
@@ -901,58 +927,15 @@
     </footer>
 
     <script src="script.js"></script>
-    <!-- AI Chatbot Widget -->
+    <!-- Estimate Widget -->
     <div class="chatbot-widget" id="chatbotWidget">
-        <div class="chatbot-header">
-            <div class="chatbot-header-info">
-                <div class="chatbot-avatar">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1v-5a7 7 0 0 1 7-7h1V3.73C9 3.39 8.6 2.74 8.6 2a2 2 0 0 1 2-2z">
-                        </path>
-                    </svg>
-                </div>
-                <div class="chatbot-header-text">
-                    <span class="chatbot-title">Craftsman AI</span>
-                    <span class="chatbot-status">Online</span>
-                </div>
-            </div>
-            <button class="chatbot-close" id="chatbotClose" aria-label="Close Chat">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-        <div class="chatbot-body">
-            <div class="chat-message bot">
-                <div class="message-content">
-                    <p>Hi there! 👋 I'm the Denver Interior & Doors AI assistant. How can I help you with your project
-                        today?</p>
-                </div>
-                <span class="message-time">Just now</span>
-            </div>
-            <div class="chat-message bot">
-                <div class="message-content">
-                    <p>I can help you with:</p>
-                    <ul>
-                        <li>Scheduling a free estimate</li>
-                        <li>Door styles & options</li>
-                        <li>Trim & moulding questions</li>
-                    </ul>
-                </div>
-                <span class="message-time">Just now</span>
-            </div>
-        </div>
-        <div class="chatbot-footer">
-            <input type="text" placeholder="Type a message..." class="chatbot-input">
-            <button class="chatbot-send" aria-label="Send message">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-            </button>
-        </div>
+        <iframe
+            id="chatbotIframe"
+            src=""
+            title="Denver Interior & Doors — Free Estimate"
+            allow="clipboard-write"
+            style="width:100%;height:100%;border:none;display:block;"
+        ></iframe>
     </div>
 
     <!-- Chatbot Toggle Button -->

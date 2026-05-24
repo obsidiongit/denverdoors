@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     initNavigation();
     initHeroVideo();
+    initHeroAiProposal();
     initStickyCtaBar();
     initSmoothScroll();
     initScrollEffects();
@@ -16,43 +17,73 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* ===================================
+   HERO AI PROPOSAL BAR (home)
+   =================================== */
+function initHeroAiProposal() {
+    const form = document.getElementById('heroAiProposalForm');
+    const input = document.getElementById('heroAiProposalInput');
+    const bar = form ? form.querySelector('.hero-ai-proposal-bar') : null;
+
+    if (!form || !input || !bar) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (!text) {
+            bar.classList.remove('hero-ai-proposal-bar--pulse');
+            void bar.offsetWidth;
+            bar.classList.add('hero-ai-proposal-bar--pulse');
+            input.focus();
+            return;
+        }
+        try {
+            sessionStorage.setItem('heroProposalBrief', text);
+        } catch (err) {
+            /* ignore quota / private mode */
+        }
+        window.location.href = 'book/index.html';
+    });
+}
+
+/* ===================================
    CHATBOT WIDGET
    =================================== */
 function initChatbot() {
-    const toggleBtn = document.getElementById('chatbotToggle');
-    const closeBtn = document.getElementById('chatbotClose');
-    const widget = document.getElementById('chatbotWidget');
+    var WIDGET_SRC = 'https://estimate.denverinteriordoors.com/widget/dd?key=dd_wk_693ab533aea8893091e313544214852dcf7393af8f1e4567';
+    var WIDGET_ORIGIN = 'https://estimate.denverinteriordoors.com';
+
+    var toggleBtn = document.getElementById('chatbotToggle');
+    var widget    = document.getElementById('chatbotWidget');
+    var iframe    = document.getElementById('chatbotIframe');
 
     if (!toggleBtn || !widget) return;
 
-    function toggleChat() {
-        const isHidden = !widget.classList.contains('active');
+    var loaded = false;
 
-        if (isHidden) {
-            widget.classList.add('active');
-            toggleBtn.classList.add('active');
-        } else {
-            widget.classList.remove('active');
-            toggleBtn.classList.remove('active');
+    function openChat() {
+        widget.classList.add('active');
+        toggleBtn.classList.add('active');
+        // Lazy-load the iframe on first open
+        if (!loaded && iframe) {
+            iframe.src = WIDGET_SRC;
+            loaded = true;
         }
     }
 
-    toggleBtn.addEventListener('click', toggleChat);
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            widget.classList.remove('active');
-            toggleBtn.classList.remove('active');
-        });
+    function closeChat() {
+        widget.classList.remove('active');
+        toggleBtn.classList.remove('active');
     }
 
-    // Optional: Auto-open after a delay (can be annoying, so maybe just a wiggle or notification)
-    // setTimeout(() => {
-    //    if (!widget.classList.contains('active')) {
-    //        toggleBtn.classList.add('bounce'); // Would need keyframes
-    //    }
-    // }, 5000);
+    toggleBtn.addEventListener('click', function () {
+        widget.classList.contains('active') ? closeChat() : openChat();
+    });
+
+    // Listen for close signal from the widget iframe
+    window.addEventListener('message', function (e) {
+        if (e.origin !== WIDGET_ORIGIN) return;
+        if (e.data === 'dd:close') closeChat();
+    });
 }
 
 /* ===================================
