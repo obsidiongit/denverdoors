@@ -9,51 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
     initSmoothScroll();
     initScrollEffects();
     initForms();
-    initChatbot();
     initExternalLinks();
     initGlowTrack();
     initReviewsCarousel();
 });
-
-/* ===================================
-   CHATBOT WIDGET
-   =================================== */
-function initChatbot() {
-    const toggleBtn = document.getElementById('chatbotToggle');
-    const closeBtn = document.getElementById('chatbotClose');
-    const widget = document.getElementById('chatbotWidget');
-
-    if (!toggleBtn || !widget) return;
-
-    function toggleChat() {
-        const isHidden = !widget.classList.contains('active');
-
-        if (isHidden) {
-            widget.classList.add('active');
-            toggleBtn.classList.add('active');
-        } else {
-            widget.classList.remove('active');
-            toggleBtn.classList.remove('active');
-        }
-    }
-
-    toggleBtn.addEventListener('click', toggleChat);
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            widget.classList.remove('active');
-            toggleBtn.classList.remove('active');
-        });
-    }
-
-    // Optional: Auto-open after a delay (can be annoying, so maybe just a wiggle or notification)
-    // setTimeout(() => {
-    //    if (!widget.classList.contains('active')) {
-    //        toggleBtn.classList.add('bounce'); // Would need keyframes
-    //    }
-    // }, 5000);
-}
 
 /* ===================================
    HERO VIDEO CAROUSEL

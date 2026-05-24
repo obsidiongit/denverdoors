@@ -179,6 +179,9 @@
                     </a>
                 </div>
 
+                <!-- AI Chat Widget -->
+                <div id="dd-widget" style="margin-top: 2rem; width: 100%;"></div>
+
             </div>
         </div>
     </section>
@@ -901,73 +904,8 @@
     </footer>
 
     <script src="script.js"></script>
-    <!-- AI Chatbot Widget -->
-    <div class="chatbot-widget" id="chatbotWidget">
-        <div class="chatbot-header">
-            <div class="chatbot-header-info">
-                <div class="chatbot-avatar">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1v-5a7 7 0 0 1 7-7h1V3.73C9 3.39 8.6 2.74 8.6 2a2 2 0 0 1 2-2z">
-                        </path>
-                    </svg>
-                </div>
-                <div class="chatbot-header-text">
-                    <span class="chatbot-title">Craftsman AI</span>
-                    <span class="chatbot-status">Online</span>
-                </div>
-            </div>
-            <button class="chatbot-close" id="chatbotClose" aria-label="Close Chat">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-        <div class="chatbot-body">
-            <div class="chat-message bot">
-                <div class="message-content">
-                    <p>Hi there! 👋 I'm the Denver Interior & Doors AI assistant. How can I help you with your project
-                        today?</p>
-                </div>
-                <span class="message-time">Just now</span>
-            </div>
-            <div class="chat-message bot">
-                <div class="message-content">
-                    <p>I can help you with:</p>
-                    <ul>
-                        <li>Scheduling a free estimate</li>
-                        <li>Door styles & options</li>
-                        <li>Trim & moulding questions</li>
-                    </ul>
-                </div>
-                <span class="message-time">Just now</span>
-            </div>
-        </div>
-        <div class="chatbot-footer">
-            <input type="text" placeholder="Type a message..." class="chatbot-input">
-            <button class="chatbot-send" aria-label="Send message">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-            </button>
-        </div>
-    </div>
-
-    <!-- Chatbot Toggle Button -->
-    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open Chat">
-        <div class="chatbot-toggle-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-open">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-close">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </div>
-        <span class="chatbot-toggle-label">Chat with us</span>
-    </button>
+    <!-- AI Chat Widget (inline hero embed) -->
+    <script src="embed.js" data-widget-key="YOUR_API_KEY_HERE" data-widget-host="http://localhost:3000" data-widget-target="#dd-widget"></script>
 </body>
 
 </html>
