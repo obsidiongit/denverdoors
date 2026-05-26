@@ -16,6 +16,25 @@
   var COLLAPSED_HEIGHT = 56;
   var EXPANDED_HEIGHT = 520;
   var expanded = false;
+  var inlineSessionId = "dd-inline-" + Date.now() + "-" + Math.random().toString(36).slice(2, 9);
+
+  function buildFrameSrc() {
+    var url = new URL(host + "/widget/default");
+    url.searchParams.set("key", key);
+    url.searchParams.set("mode", "inline");
+    url.searchParams.set("clientSession", inlineSessionId);
+    url.searchParams.set("fresh", "1");
+    return url.toString();
+  }
+
+  function configureFrame(frame) {
+    frame.setAttribute("credentialless", "");
+    try {
+      frame.credentialless = true;
+    } catch (_) {
+      // Older browsers ignore credentialless; keep loading normally.
+    }
+  }
 
   function init() {
     var container = document.querySelector(target);
@@ -137,6 +156,7 @@
     frame.className = "dd-widget-frame";
     frame.setAttribute("allow", "clipboard-write");
     frame.setAttribute("title", "Get a project estimate");
+    configureFrame(frame);
 
     wrap.appendChild(bar);
     wrap.appendChild(frame);
@@ -148,7 +168,7 @@
       expanded = true;
       wrap.classList.add("dd-expanded");
       if (!frame.src) {
-        frame.src = host + "/widget/default?key=" + encodeURIComponent(key) + "&mode=inline";
+        frame.src = buildFrameSrc();
       }
       if (firstMessage) {
         var trySend = function (attempts) {

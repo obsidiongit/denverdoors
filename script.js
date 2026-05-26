@@ -57,13 +57,39 @@ function initChatbot() {
     if (!widget) return;
 
     var loaded = false;
+    var activeBrief = '';
+
+    function createWidgetSessionId() {
+        return 'dd-site-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
+    }
+
+    function buildWidgetSrc(brief) {
+        var url = new URL(WIDGET_BASE);
+        url.searchParams.set('clientSession', createWidgetSessionId());
+        url.searchParams.set('fresh', '1');
+        if (brief) url.searchParams.set('brief', brief);
+        return url.toString();
+    }
+
+    function configureIframe() {
+        if (!iframe) return;
+        iframe.setAttribute('credentialless', '');
+        try {
+            iframe.credentialless = true;
+        } catch (error) {
+            // Older browsers ignore credentialless; the widget still works.
+        }
+    }
+
+    configureIframe();
 
     function openChat(brief) {
-        var src = WIDGET_BASE;
-        if (brief) src += '&brief=' + encodeURIComponent(brief);
+        if (brief) activeBrief = brief;
         if (!loaded && iframe) {
-            iframe.src = src;
+            configureIframe();
+            iframe.src = buildWidgetSrc(activeBrief);
             loaded = true;
+            activeBrief = '';
         }
         widget.classList.add('active');
         if (closeBtn) closeBtn.removeAttribute('hidden');
@@ -72,6 +98,11 @@ function initChatbot() {
     function closeChat() {
         widget.classList.remove('active');
         if (closeBtn) closeBtn.setAttribute('hidden', '');
+        if (iframe) {
+            iframe.src = 'about:blank';
+            loaded = false;
+            activeBrief = '';
+        }
     }
 
     // Close button
