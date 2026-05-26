@@ -47,62 +47,81 @@ function initHeroAiProposal() {
    ESTIMATE CHAT WIDGET
    =================================== */
 function initChatbot() {
-    var WIDGET_BASE = 'https://estimate.denverinteriordoors.com/widget/dd?key=dd_wk_693ab533aea8893091e313544214852dcf7393af8f1e4567';
+    var WIDGET_BASE = 'https://estimate.denverinteriordoors.com/widget/default?key=dd_wk_693ab533aea8893091e313544214852dcf7393af8f1e4567&mode=inline';
     var WIDGET_ORIGIN = 'https://estimate.denverinteriordoors.com';
 
-    var widget    = document.getElementById('chatbotWidget');
-    var iframe    = document.getElementById('chatbotIframe');
-    var closeBtn  = document.getElementById('widgetCloseBtn');
+    var hero = document.querySelector('.hero');
+    var widget = document.getElementById('dd-widget');
+    var iframe = document.getElementById('chatbotIframe');
+    var closeBtn = document.getElementById('widgetCloseBtn');
+    var input = document.getElementById('heroAiProposalInput');
 
-    if (!widget) return;
+    if (!widget || !iframe) return;
 
     var loaded = false;
-    var activeBrief = '';
+    var pendingMessage = '';
 
     function createWidgetSessionId() {
         return 'dd-site-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
     }
 
-    function buildWidgetSrc(brief) {
+    function buildWidgetSrc() {
         var url = new URL(WIDGET_BASE);
         url.searchParams.set('clientSession', createWidgetSessionId());
         url.searchParams.set('fresh', '1');
-        if (brief) url.searchParams.set('brief', brief);
         return url.toString();
     }
 
     function configureIframe() {
         if (!iframe) return;
-        iframe.setAttribute('credentialless', '');
-        try {
-            iframe.credentialless = true;
-        } catch (error) {
-            // Older browsers ignore credentialless; the widget still works.
-        }
     }
 
     configureIframe();
 
-    function openChat(brief) {
-        if (brief) activeBrief = brief;
-        if (!loaded && iframe) {
-            configureIframe();
-            iframe.src = buildWidgetSrc(activeBrief);
-            loaded = true;
-            activeBrief = '';
+    function setOpenState(isOpen) {
+        widget.classList.toggle('active', isOpen);
+        widget.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        if (hero) {
+            hero.classList.toggle('hero-chat-open', isOpen);
         }
-        widget.classList.add('active');
-        if (closeBtn) closeBtn.removeAttribute('hidden');
+        if (closeBtn) {
+            if (isOpen) {
+                closeBtn.removeAttribute('hidden');
+            } else {
+                closeBtn.setAttribute('hidden', '');
+            }
+        }
+    }
+
+    function sendMessageToWidget(text) {
+        if (!text || !iframe || !iframe.contentWindow) return;
+        iframe.contentWindow.postMessage({
+            type: 'dd-widget-message',
+            text: text
+        }, WIDGET_ORIGIN);
+    }
+
+    function openChat(brief) {
+        setOpenState(true);
+
+        if (!loaded) {
+            pendingMessage = brief || '';
+            configureIframe();
+            iframe.src = buildWidgetSrc();
+            loaded = true;
+            return;
+        }
+
+        if (brief) {
+            sendMessageToWidget(brief);
+        }
     }
 
     function closeChat() {
-        widget.classList.remove('active');
-        if (closeBtn) closeBtn.setAttribute('hidden', '');
-        if (iframe) {
-            iframe.src = 'about:blank';
-            loaded = false;
-            activeBrief = '';
-        }
+        setOpenState(false);
+        window.setTimeout(function () {
+            if (input) input.focus();
+        }, 180);
     }
 
     // Close button
@@ -113,7 +132,20 @@ function initChatbot() {
     // Listen for close signal from iframe
     window.addEventListener('message', function (e) {
         if (e.origin !== WIDGET_ORIGIN) return;
-        if (e.data === 'dd:close') closeChat();
+        if (e.data === 'dd:close') {
+            closeChat();
+            return;
+        }
+        if (e.data && e.data.type === 'dd-widget-ready' && pendingMessage) {
+            sendMessageToWidget(pendingMessage);
+            pendingMessage = '';
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && widget.classList.contains('active')) {
+            closeChat();
+        }
     });
 
     // Expose so hero form can call it
