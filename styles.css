@@ -3927,7 +3927,7 @@ button {
     flex: 1;
     min-height: 0;
     overflow: hidden;
-    background: #fff;
+    background: #1A1714;
 }
 
 .chatbot-body iframe {
@@ -3935,6 +3935,7 @@ button {
     height: 100%;
     border: none;
     display: block;
+    background: transparent;
 }
 
 .chatbot-footer {
