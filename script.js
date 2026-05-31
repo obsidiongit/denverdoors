@@ -46,59 +46,50 @@ function initHeroAiProposal() {
 /* ===================================
    ESTIMATE CHAT WIDGET
    =================================== */
-function initChatbot() {
-    var WIDGET_BASE = 'https://estimate.denverinteriordoors.com/widget/default?key=dd_wk_693ab533aea8893091e313544214852dcf7393af8f1e4567&mode=inline';
-    var WIDGET_ORIGIN = 'https://estimate.denverinteriordoors.com';
+var DD_WIDGET_BASE = 'https://estimate.denverinteriordoors.com/widget/default?key=dd_wk_693ab533aea8893091e313544214852dcf7393af8f1e4567&mode=inline';
+var DD_WIDGET_ORIGIN = 'https://estimate.denverinteriordoors.com';
 
-    var hero = document.querySelector('.hero');
-    var widget = document.getElementById('dd-widget');
-    var iframe = document.getElementById('chatbotIframe');
-    var closeBtn = document.getElementById('widgetCloseBtn');
-    var input = document.getElementById('heroAiProposalInput');
+function createWidgetSessionId() {
+    return 'dd-site-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
+}
 
-    if (!widget || !iframe) return;
+function buildWidgetSrc() {
+    var url = new URL(DD_WIDGET_BASE);
+    url.searchParams.set('clientSession', createWidgetSessionId());
+    url.searchParams.set('fresh', '1');
+    return url.toString();
+}
 
+function createEstimateWidgetController(options) {
+    var widget = options.widget;
+    var iframe = options.iframe;
+    var closeBtn = options.closeBtn;
+    var toggleBtn = options.toggleBtn;
+    var onOpen = options.onOpen || function () {};
+    var onClose = options.onClose || function () {};
     var loaded = false;
     var pendingMessage = '';
-
-    function createWidgetSessionId() {
-        return 'dd-site-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
-    }
-
-    function buildWidgetSrc() {
-        var url = new URL(WIDGET_BASE);
-        url.searchParams.set('clientSession', createWidgetSessionId());
-        url.searchParams.set('fresh', '1');
-        return url.toString();
-    }
-
-    function configureIframe() {
-        if (!iframe) return;
-    }
-
-    configureIframe();
-
-    function setOpenState(isOpen) {
-        widget.classList.toggle('active', isOpen);
-        widget.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-        if (hero) {
-            hero.classList.toggle('hero-chat-open', isOpen);
-        }
-        if (closeBtn) {
-            if (isOpen) {
-                closeBtn.removeAttribute('hidden');
-            } else {
-                closeBtn.setAttribute('hidden', '');
-            }
-        }
-    }
 
     function sendMessageToWidget(text) {
         if (!text || !iframe || !iframe.contentWindow) return;
         iframe.contentWindow.postMessage({
             type: 'dd-widget-message',
             text: text
-        }, WIDGET_ORIGIN);
+        }, DD_WIDGET_ORIGIN);
+    }
+
+    function setOpenState(isOpen) {
+        widget.classList.toggle('active', isOpen);
+        widget.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        if (toggleBtn) {
+            toggleBtn.classList.toggle('hidden', isOpen);
+            toggleBtn.classList.toggle('is-open', isOpen);
+        }
+        if (isOpen) {
+            onOpen();
+        } else {
+            onClose();
+        }
     }
 
     function openChat(brief) {
@@ -106,7 +97,6 @@ function initChatbot() {
 
         if (!loaded) {
             pendingMessage = brief || '';
-            configureIframe();
             iframe.src = buildWidgetSrc();
             loaded = true;
             return;
@@ -119,19 +109,24 @@ function initChatbot() {
 
     function closeChat() {
         setOpenState(false);
-        window.setTimeout(function () {
-            if (input) input.focus();
-        }, 180);
     }
 
-    // Close button
     if (closeBtn) {
         closeBtn.addEventListener('click', closeChat);
     }
 
-    // Listen for close signal from iframe
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+            if (widget.classList.contains('active')) {
+                closeChat();
+            } else {
+                openChat();
+            }
+        });
+    }
+
     window.addEventListener('message', function (e) {
-        if (e.origin !== WIDGET_ORIGIN) return;
+        if (e.origin !== DD_WIDGET_ORIGIN) return;
         if (e.data === 'dd:close') {
             closeChat();
             return;
@@ -148,8 +143,114 @@ function initChatbot() {
         }
     });
 
-    // Expose so hero form can call it
-    window.__openEstimateWidget = openChat;
+    return {
+        openChat: openChat,
+        closeChat: closeChat
+    };
+}
+
+function initHeroChatbot() {
+    var hero = document.querySelector('.hero');
+    var widget = document.getElementById('dd-widget');
+    var iframe = document.getElementById('chatbotIframe');
+    var closeBtn = document.getElementById('widgetCloseBtn');
+    var input = document.getElementById('heroAiProposalInput');
+
+    if (!widget || !iframe) return null;
+
+    var controller = createEstimateWidgetController({
+        widget: widget,
+        iframe: iframe,
+        closeBtn: closeBtn,
+        onOpen: function () {
+            if (hero) hero.classList.add('hero-chat-open');
+            if (closeBtn) closeBtn.removeAttribute('hidden');
+        },
+        onClose: function () {
+            if (hero) hero.classList.remove('hero-chat-open');
+            if (closeBtn) closeBtn.setAttribute('hidden', '');
+            window.setTimeout(function () {
+                if (input) input.focus();
+            }, 180);
+        }
+    });
+
+    return controller.openChat;
+}
+
+function ensureFloatingChatbotMarkup() {
+    var widget = document.getElementById('chatbotWidget');
+    var toggle = document.getElementById('chatbotToggle');
+
+    if (!widget) {
+        widget = document.createElement('div');
+        widget.className = 'chatbot-widget';
+        widget.id = 'chatbotWidget';
+        widget.setAttribute('aria-hidden', 'true');
+        widget.innerHTML =
+            '<div class="chatbot-header">' +
+                '<div class="chatbot-header-info">' +
+                    '<div class="chatbot-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1v-5a7 7 0 0 1 7-7h1V3.73C9 3.39 8.6 2.74 8.6 2a2 2 0 0 1 2-2z"></path></svg></div>' +
+                    '<div class="chatbot-header-text"><span class="chatbot-title">Craftsman AI</span><span class="chatbot-status">Online</span></div>' +
+                '</div>' +
+                '<button class="chatbot-close" id="chatbotClose" aria-label="Close Chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' +
+            '</div>' +
+            '<div class="chatbot-body"></div>';
+        document.body.appendChild(widget);
+    }
+
+    if (!toggle) {
+        toggle = document.createElement('button');
+        toggle.className = 'chatbot-toggle';
+        toggle.id = 'chatbotToggle';
+        toggle.setAttribute('aria-label', 'Open Chat');
+        toggle.innerHTML =
+            '<div class="chatbot-toggle-icon">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-open"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-close"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+            '</div>' +
+            '<span class="chatbot-toggle-label">Chat with us</span>';
+        document.body.appendChild(toggle);
+    }
+
+    var body = widget.querySelector('.chatbot-body');
+    var footer = widget.querySelector('.chatbot-footer');
+    var iframe = document.getElementById('floatingChatbotIframe');
+
+    if (footer) footer.remove();
+    if (body) body.innerHTML = '';
+
+    if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.id = 'floatingChatbotIframe';
+        iframe.title = 'Denver Interior & Doors — Free Estimate';
+        iframe.setAttribute('allow', 'clipboard-write');
+        if (body) body.appendChild(iframe);
+    }
+
+    widget.setAttribute('aria-hidden', 'true');
+
+    return {
+        widget: widget,
+        iframe: iframe,
+        closeBtn: document.getElementById('chatbotClose'),
+        toggleBtn: toggle
+    };
+}
+
+function initFloatingChatbot() {
+    if (document.getElementById('dd-widget')) return null;
+
+    var elements = ensureFloatingChatbotMarkup();
+    var controller = createEstimateWidgetController(elements);
+    return controller.openChat;
+}
+
+function initChatbot() {
+    var openChat = initHeroChatbot() || initFloatingChatbot();
+    if (openChat) {
+        window.__openEstimateWidget = openChat;
+    }
 }
 
 /* ===================================
