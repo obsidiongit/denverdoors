@@ -3739,6 +3739,8 @@ button {
     width: 100%;
     height: auto;
     display: inline-block;
+    /* logo.png is white-on-dark; invert for light form header */
+    filter: invert(1);
 }
 
 .lead-form-subtitle {
