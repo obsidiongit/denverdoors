@@ -71,26 +71,6 @@
             height: 24px;
         }
 
-        .book-iframe-wrapper {
-            background: var(--background);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .book-iframe-wrapper iframe {
-            width: 100%;
-            height: 750px;
-            border: none;
-            display: block;
-        }
-
-        @media (max-width: 600px) {
-            .book-iframe-wrapper iframe {
-                height: 600px;
-            }
-        }
     </style>
 
     <!-- Open Graph Default -->
@@ -245,11 +225,32 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Dripjobs Iframe -->
-                <div class="book-iframe-wrapper">
-                    <iframe src="https://denverinteriordoors.dripjobs.com/appointmentrequests"
-                        title="Book an appointment with Denver Interior & Doors Co."></iframe>
+                <!-- Right Column: GHL Lead Form -->
+                <div class="lead-form-card">
+                    <div class="lead-form-header">
+                        <img src="../assets/logo.png" alt="Denver Interior & Doors Co." class="lead-form-logo">
+                        <p class="lead-form-subtitle">Request your free in-home consultation</p>
+                    </div>
+                    <div class="lead-form-iframe-container">
+                        <iframe
+                            src="https://api.leadconnectorhq.com/widget/form/Q5KVwOVV6TobKDXbEMzS"
+                            style="width:100%;height:100%;border:none;border-radius:8px"
+                            id="inline-Q5KVwOVV6TobKDXbEMzS"
+                            data-layout="{'id':'INLINE'}"
+                            data-trigger-type="alwaysShow"
+                            data-trigger-value=""
+                            data-activation-type="alwaysActivated"
+                            data-activation-value=""
+                            data-deactivation-type="neverDeactivate"
+                            data-deactivation-value=""
+                            data-form-name="Website Lead Form"
+                            data-height="1978"
+                            data-layout-iframe-id="inline-Q5KVwOVV6TobKDXbEMzS"
+                            data-form-id="Q5KVwOVV6TobKDXbEMzS"
+                            title="Website Lead Form"></iframe>
+                    </div>
                 </div>
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
             </div>
         </div>
     </section>

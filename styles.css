@@ -3717,7 +3717,68 @@ button {
 }
 
 /* ===================================
-   BOOKING MODAL (DRIPJOBS IFRAME)
+   GHL LEAD FORM EMBED
+   =================================== */
+.lead-form-card {
+    background: var(--background);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.lead-form-header {
+    padding: var(--space-6) var(--space-8) var(--space-5);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--background);
+}
+
+.lead-form-logo {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.lead-form-subtitle {
+    margin: var(--space-3) 0 0;
+    font-size: 0.875rem;
+    color: var(--foreground-muted);
+    letter-spacing: 0.02em;
+}
+
+.lead-form-iframe-container {
+    width: 100%;
+    max-height: min(920px, calc(100vh - 160px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: var(--background);
+}
+
+.lead-form-iframe-container iframe {
+    width: 100%;
+    min-height: 600px;
+    border: none;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .lead-form-header {
+        padding: var(--space-5) var(--space-4) var(--space-4);
+    }
+
+    .lead-form-logo {
+        max-width: 180px;
+    }
+
+    .lead-form-iframe-container {
+        max-height: none;
+    }
+}
+
+/* ===================================
+   BOOKING MODAL
    =================================== */
 .booking-modal {
     position: fixed;

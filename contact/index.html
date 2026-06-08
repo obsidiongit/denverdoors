@@ -26,9 +26,9 @@
     <style>
         .contact-page-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.4fr;
             gap: var(--space-12);
-            align-items: stretch;
+            align-items: start;
         }
 
         @media (max-width: 900px) {
@@ -55,29 +55,6 @@
             flex-shrink: 0;
         }
 
-        .contact-form-wrapper {
-            background: var(--card);
-            padding: var(--space-8);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-form-wrapper .book-iframe-container {
-            flex: 1;
-            min-height: 700px;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .contact-form-wrapper .book-iframe-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
     </style>
 
     <!-- Open Graph Default -->
@@ -236,14 +213,32 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Form -->
-                <div class="contact-form-wrapper">
-                    <h3 style="margin-bottom: var(--space-6);">Book an Appointment</h3>
-                    <div class="book-iframe-container">
-                        <iframe src="https://denverinteriordoors.dripjobs.com/appointmentrequests"
-                            frameborder="0"></iframe>
+                <!-- Right Column: GHL Lead Form -->
+                <div class="lead-form-card">
+                    <div class="lead-form-header">
+                        <img src="../assets/logo.png" alt="Denver Interior & Doors Co." class="lead-form-logo">
+                        <p class="lead-form-subtitle">Request your free in-home consultation</p>
+                    </div>
+                    <div class="lead-form-iframe-container">
+                        <iframe
+                            src="https://api.leadconnectorhq.com/widget/form/Q5KVwOVV6TobKDXbEMzS"
+                            style="width:100%;height:100%;border:none;border-radius:8px"
+                            id="inline-Q5KVwOVV6TobKDXbEMzS"
+                            data-layout="{'id':'INLINE'}"
+                            data-trigger-type="alwaysShow"
+                            data-trigger-value=""
+                            data-activation-type="alwaysActivated"
+                            data-activation-value=""
+                            data-deactivation-type="neverDeactivate"
+                            data-deactivation-value=""
+                            data-form-name="Website Lead Form"
+                            data-height="1978"
+                            data-layout-iframe-id="inline-Q5KVwOVV6TobKDXbEMzS"
+                            data-form-id="Q5KVwOVV6TobKDXbEMzS"
+                            title="Website Lead Form"></iframe>
                     </div>
                 </div>
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
             </div>
         </div>
     </section>
