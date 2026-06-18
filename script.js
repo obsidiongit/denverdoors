@@ -1,4 +1,4 @@
-/* ===================================
+﻿/* ===================================
    WEBSITE TEMPLATE - JavaScript Utilities
    =================================== */
 
@@ -523,11 +523,11 @@ function submitToFormspree(form, successMessage) {
                 showNotification(successMessage, 'success');
                 form.reset();
             } else {
-                showNotification('Something went wrong. Please call us at (720) 744-2553.', 'error');
+                showNotification('Something went wrong. Please call us at (720) 807-0766.', 'error');
             }
         })
         .catch(() => {
-            showNotification('Something went wrong. Please call us at (720) 744-2553.', 'error');
+            showNotification('Something went wrong. Please call us at (720) 807-0766.', 'error');
         })
         .finally(() => {
             submitBtn.disabled = false;

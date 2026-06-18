@@ -1,9 +1,9 @@
-# Contact Specifications
+﻿# Contact Specifications
 
 ## Content
 
 ### Contact Information
-**Phone:** (720) 744-2553
+**Phone:** (720) 807-0766
 **Email:** service@denverinteriordoors.com
 **Service Area:** Denver, Colorado and surrounding metro area.
 
