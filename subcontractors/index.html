@@ -209,6 +209,12 @@
             font-weight: 500;
         }
 
+        .doc-optional-badge {
+            font-size: var(--text-label);
+            color: var(--foreground-subtle);
+            font-weight: 500;
+        }
+
         .doc-hint {
             font-size: var(--text-label);
             color: var(--foreground-subtle);
@@ -384,7 +390,7 @@
         <!-- Main form -->
         <div id="mainForm">
             <div class="form-notice">
-                All four documents are required to submit your application — general liability insurance, workers' compensation (or exemption certificate), W-9, and your Colorado contractor license or registration. Max file size: 10 MB each. PDFs and images accepted.
+                Three documents are required to submit your application — general liability insurance, workers' compensation (or exemption certificate), and W-9. Your Colorado contractor license or registration is optional. Max file size: 10 MB each. PDFs and images accepted.
             </div>
 
             <form id="subForm" novalidate>
@@ -495,10 +501,10 @@
                         <div class="doc-upload-item">
                             <div class="doc-upload-header">
                                 <span class="doc-upload-name">Contractor License / Registration</span>
-                                <span class="doc-required-badge">Required</span>
+                                <span class="doc-optional-badge">Optional</span>
                             </div>
-                            <p class="doc-hint">Colorado contractor license, registration, or trade license.</p>
-                            <input class="doc-file-input" type="file" id="license" name="license" accept=".pdf,.jpg,.jpeg,.png,.webp" required>
+                            <p class="doc-hint">Colorado contractor license, registration, or trade license, if applicable.</p>
+                            <input class="doc-file-input" type="file" id="license" name="license" accept=".pdf,.jpg,.jpeg,.png,.webp">
                             <p class="doc-status" id="status_license">✓ File selected</p>
                         </div>
 
@@ -528,7 +534,8 @@
     <script src="../script.js"></script>
     <script>
         const API_URL = 'https://estimate.denverinteriordoors.com/api/subcontractor-apply';
-        const DOC_FIELDS = ['liability_insurance', 'workers_comp', 'w9', 'license'];
+        const REQUIRED_DOC_FIELDS = ['liability_insurance', 'workers_comp', 'w9'];
+        const DOC_FIELDS = [...REQUIRED_DOC_FIELDS, 'license'];
 
         // Specialty checkbox visual state
         document.querySelectorAll('.specialty-check input[type="checkbox"]').forEach(cb => {
@@ -578,12 +585,12 @@
                 return;
             }
 
-            const missingDocs = DOC_FIELDS.filter(f => {
+            const missingDocs = REQUIRED_DOC_FIELDS.filter(f => {
                 const input = document.getElementById(f);
                 return !input.files || !input.files[0];
             });
             if (missingDocs.length > 0) {
-                errorEl.textContent = 'All four documents are required. Please upload the missing files.';
+                errorEl.textContent = 'General liability insurance, workers\' compensation, and W-9 are required. Please upload the missing files.';
                 errorEl.style.display = 'block';
                 return;
             }
