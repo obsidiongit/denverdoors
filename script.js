@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     initNavigation();
     initHeroVideo();
+    initLazyBackgrounds();
     initHeroAiProposal();
     initStickyCtaBar();
     initSmoothScroll();
@@ -256,51 +257,150 @@ function initChatbot() {
 /* ===================================
    HERO VIDEO CAROUSEL
    =================================== */
-function initHeroVideo() {
-    const videos = document.querySelectorAll('.hero-video');
-    if (!videos.length) return;
+function loadHeroVideoSource(video) {
+    if (video.dataset.loaded === 'true') {
+        return Promise.resolve();
+    }
 
-    const overlapTime = 1.5;
+    var src = video.getAttribute('data-src');
+    if (!src) {
+        return Promise.resolve();
+    }
 
-    const firstVideo = videos[0];
-    firstVideo.play().catch(error => {
-        console.log("Video autoplay prevented:", error);
+    var source = document.createElement('source');
+    source.src = src;
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    video.dataset.loaded = 'true';
+    video.load();
+
+    return new Promise(function (resolve) {
+        if (video.readyState >= 2) {
+            resolve();
+            return;
+        }
+
+        video.addEventListener('loadeddata', resolve, { once: true });
     });
+}
 
-    videos.forEach((video, index) => {
-        video.addEventListener('timeupdate', () => {
-            const timeRemaining = video.duration - video.currentTime;
+function initHeroVideo() {
+    var videos = Array.prototype.slice.call(document.querySelectorAll('.hero-video'));
+    if (!videos.length) {
+        return;
+    }
 
-            if (timeRemaining < overlapTime && !video.dataset.transitioning && !video.paused) {
-                video.dataset.transitioning = "true";
+    var overlapTime = 1.5;
+    var isMobile = window.matchMedia('(max-width: 768px)').matches;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
 
-                const nextIndex = (index + 1) % videos.length;
-                const nextVideo = videos[nextIndex];
+    if (reduceMotion || saveData) {
+        videos.slice(1).forEach(function (video) {
+            video.remove();
+        });
+        return;
+    }
 
-                nextVideo.currentTime = 0;
-                nextVideo.classList.add('active');
-                nextVideo.play().catch(e => console.log("Next video play prevented:", e));
+    if (isMobile) {
+        videos.slice(1).forEach(function (video) {
+            video.remove();
+        });
+        videos[0].loop = true;
+        videos[0].play().catch(function () {});
+        return;
+    }
 
-                video.classList.remove('active');
+    videos[0].play().catch(function () {});
 
-                setTimeout(() => {
-                    video.pause();
-                    video.currentTime = 0;
-                    delete video.dataset.transitioning;
-                }, overlapTime * 1000);
+    videos.forEach(function (video, index) {
+        video.addEventListener('timeupdate', function () {
+            if (!video.duration || video.paused) {
+                return;
+            }
+
+            var timeRemaining = video.duration - video.currentTime;
+
+            if (timeRemaining < overlapTime && !video.dataset.transitioning) {
+                video.dataset.transitioning = 'true';
+
+                var nextIndex = (index + 1) % videos.length;
+                var nextVideo = videos[nextIndex];
+
+                loadHeroVideoSource(nextVideo).then(function () {
+                    nextVideo.currentTime = 0;
+                    nextVideo.classList.add('active');
+                    nextVideo.play().catch(function () {});
+
+                    video.classList.remove('active');
+
+                    window.setTimeout(function () {
+                        video.pause();
+                        video.currentTime = 0;
+                        delete video.dataset.transitioning;
+                    }, overlapTime * 1000);
+                });
             }
         });
 
-        video.addEventListener('ended', () => {
-            if (!video.dataset.transitioning) {
-                const nextIndex = (index + 1) % videos.length;
-                const nextVideo = videos[nextIndex];
+        video.addEventListener('ended', function () {
+            if (video.dataset.transitioning) {
+                return;
+            }
 
+            var nextIndex = (index + 1) % videos.length;
+            var nextVideo = videos[nextIndex];
+
+            loadHeroVideoSource(nextVideo).then(function () {
                 video.classList.remove('active');
                 nextVideo.classList.add('active');
-                nextVideo.play().catch(e => console.log("Next video play prevented:", e));
-            }
+                nextVideo.play().catch(function () {});
+            });
         });
+    });
+}
+
+/* ===================================
+   LAZY BACKGROUND IMAGES
+   =================================== */
+function initLazyBackgrounds() {
+    var elements = document.querySelectorAll('[data-bg]');
+    if (!elements.length) {
+        return;
+    }
+
+    function applyBackground(element) {
+        var webp = element.getAttribute('data-bg-webp');
+        var fallback = element.getAttribute('data-bg');
+
+        if (webp) {
+            element.style.backgroundImage =
+                "image-set(url('" + webp + "') type('image/webp'), url('" + fallback + "') type('image/jpeg'))";
+        } else {
+            element.style.backgroundImage = "url('" + fallback + "')";
+        }
+
+        element.classList.add('lazy-bg-loaded');
+    }
+
+    if (!('IntersectionObserver' in window)) {
+        elements.forEach(applyBackground);
+        return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            applyBackground(entry.target);
+            observer.unobserve(entry.target);
+        });
+    }, { rootMargin: '240px 0px' });
+
+    elements.forEach(function (element) {
+        observer.observe(element);
     });
 }
 

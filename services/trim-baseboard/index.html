@@ -2,15 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN085Q6YPQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-EN085Q6YPQ');
-    </script>
+    <script src="../../analytics.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trim & Baseboard Installation | Denver Interior & Doors Co.</title>
@@ -18,9 +10,9 @@
         content="Expert trim and baseboard installation in Denver. Crown moulding, window casings, and modern baseboards installed with precision carpentry.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
-        rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="../../styles.css">
     <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 
@@ -36,8 +28,11 @@
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" tabindex="0">
                 <span class="hamburger"></span>
             </button>
+            <a href="../../index.html" class="nav-mobile-brand" aria-label="Denver Interior & Doors Co. Home">
+                <img src="../../assets/logo.webp" alt="Denver Interior & Doors Co." class="nav-mobile-logo" width="250" height="172">
+            </a>
             <ul class="nav-menu" id="navMenu">
-                <li class="mobile-only nav-brand"><img src="../../assets/logo.png" alt="Denver Interior & Doors Co."
+                <li class="mobile-only nav-brand"><img src="../../assets/logo.webp" width="250" height="172" alt="Denver Interior & Doors Co."
                         class="nav-menu-logo"></li>
                 <li><a href="../../index.html" class="nav-link">Home</a></li>
                 <li><a href="../index.html" class="nav-link active">Services</a></li>
@@ -66,7 +61,7 @@
     <!-- Service Hero -->
     <section class="hero hero-page"
         style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../../assets/images/1383-Raleigh-St_DiningA-1536x1024.jpg');">
-        <a href="../../index.html" class="hero-logo-overlay"><img src="../../assets/logo.png"
+        <a href="../../index.html" class="hero-logo-overlay"><img src="../../assets/logo.webp" width="250" height="172"
                 alt="Denver Interior & Doors Co." class="hero-logo-img"></a>
         <div class="hero-content">
             <div class="hero-text text-center">
@@ -269,7 +264,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="../../index.html" class="footer-logo" aria-label="Denver Interior & Doors Co."><img
-                            src="../../assets/logo.png" alt="Denver Interior & Doors Co." class="footer-logo-img"></a>
+                            src="../../assets/logo.webp" width="250" height="172" alt="Denver Interior & Doors Co." class="footer-logo-img"></a>
                     <p class="footer-desc">High-End Finish Carpentry & Custom Woodworking serving the Denver Metro area.
                     </p>
                     <div class="footer-social">
