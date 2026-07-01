@@ -223,6 +223,21 @@
             margin-bottom: var(--space-3);
         }
 
+        .doc-download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: var(--text-body-sm);
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: var(--space-3);
+        }
+
+        .doc-download-link:hover {
+            text-decoration: underline;
+        }
+
         .doc-file-input {
             width: 100%;
             font-size: var(--text-body-sm);
@@ -395,7 +410,7 @@
         <!-- Main form -->
         <div id="mainForm">
             <div class="form-notice">
-                Three documents are required to submit your application — general liability insurance, workers' compensation (or exemption certificate), and W-9. Your Colorado contractor license or registration is optional. Max file size: 10 MB each. PDFs and images accepted.
+                Four documents are required to submit your application — general liability insurance, workers' compensation (or exemption certificate), W-9, and a signed insurance &amp; indemnification agreement. Your Colorado contractor license or registration is optional. Max file size: 10 MB each. PDFs and images accepted.
             </div>
 
             <form id="subForm" novalidate>
@@ -505,6 +520,19 @@
 
                         <div class="doc-upload-item">
                             <div class="doc-upload-header">
+                                <span class="doc-upload-name">Insurance &amp; Indemnification Agreement</span>
+                                <span class="doc-required-badge">Required</span>
+                            </div>
+                            <p class="doc-hint">Download the agreement, sign it (including your workers' comp election), then upload the signed copy here.</p>
+                            <a class="doc-download-link" href="https://yghehbyqqscjsgtxnufq.supabase.co/storage/v1/object/public/workspace-assets/subcontractors/DID-Subcontractor-Insurance-Agreement.docx" download>
+                                Download blank agreement
+                            </a>
+                            <input class="doc-file-input" type="file" id="insurance_agreement" name="insurance_agreement" accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx" required>
+                            <p class="doc-status" id="status_insurance_agreement">✓ File selected</p>
+                        </div>
+
+                        <div class="doc-upload-item">
+                            <div class="doc-upload-header">
                                 <span class="doc-upload-name">Contractor License / Registration</span>
                                 <span class="doc-optional-badge">Optional</span>
                             </div>
@@ -539,7 +567,7 @@
     <script src="../script.js"></script>
     <script>
         const API_URL = 'https://estimate.denverinteriordoors.com/api/subcontractor-apply';
-        const REQUIRED_DOC_FIELDS = ['liability_insurance', 'workers_comp', 'w9'];
+        const REQUIRED_DOC_FIELDS = ['liability_insurance', 'workers_comp', 'w9', 'insurance_agreement'];
         const DOC_FIELDS = [...REQUIRED_DOC_FIELDS, 'license'];
 
         // Specialty checkbox visual state
@@ -595,7 +623,7 @@
                 return !input.files || !input.files[0];
             });
             if (missingDocs.length > 0) {
-                errorEl.textContent = 'General liability insurance, workers\' compensation, and W-9 are required. Please upload the missing files.';
+                errorEl.textContent = 'General liability insurance, workers\' compensation, W-9, and the signed insurance agreement are required. Please upload the missing files.';
                 errorEl.style.display = 'block';
                 return;
             }
